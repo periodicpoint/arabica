@@ -6,7 +6,7 @@ Your contents live in a seperate directory (see `./core/`) where they can be org
 The *template* itself lives in `./controls/`.
 
 # Thanks
-The [*arabica boilerplate*](https://github.com/qualiacode/arabica) is inspired by the [pandoc latex template *eisvogel* by Wandmalfarbe](https://github.com/Wandmalfarbe/pandoc-latex-template) and was built with the help of the following sources and tools: [References and Credits](#References and Credits).
+The [*arabica boilerplate*](https://github.com/qualiacode/arabica) is inspired by the [pandoc latex template *eisvogel* by Wandmalfarbe](https://github.com/Wandmalfarbe/pandoc-latex-template) and was built with the help of the following sources and tools: [References and Credits](#references-and-credits).
 
 # Installation
 ## Preconditions
@@ -46,7 +46,7 @@ The `arabica.template` file may work as long as you provide some basic variables
 # Other
 ## Read out your current default template execude: `pandoc -D latex > default.latex`.
 
-# <a name="References and Credits"></a> References and Credits
+# References and Credits
 1. Plot graphics: [Gnuplot](file:///home/martin/library/storage/RVTFSCUF/hidden2.html)
 2. Blind text: [Jasper Van der Jeugt lorem-markdownum](https://github.com/jaspervdj/lorem-markdownum)
 3. Bug fix by [Marco Torchiano \@ StackExchange](https://tex.stackexchange.com/questions/161431/how-to-solve-longtable-is-not-in-1-column-mode-error?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa) see [Pandoc issue 1023](https://github.com/jgm/pandoc/issues/1023).
