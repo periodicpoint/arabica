@@ -1,0 +1,351 @@
+---
+# language, identifies the main language of the document, (polyglossia-lang)
+lang: 'en'
+
+# the base direction of the document, either rtl (right-to-left) or ltr
+# (left-to-right). When using LaTeX for bidirectional documents, only the
+# xelatex engine is fully supported (use --pdf-engine=xelatex).
+dir: 'ltr'
+
+# variables for LaTeX
+# LaTeX variables are used when creating a PDF.
+
+# paper size, e.g. letter, a4
+papersize: 'a4'
+
+# font size for body text (e.g. 10pt, 12pt)
+fontsize: 11
+
+# document class, e.g. article, report, book, memoir, scrreport, scrartcl,
+# scrbook
+documentclass: 'scrbook'
+
+# option for document class, e.g. titlepage, oneside; may be repeated for
+# multiple options.
+# default options are:
+#
+# titlepage=false (or just "- titlepage")
+# if you want to display your abstract you have to set TWO options.
+# FIRST you have to tell scrartcl that you want to print out your abtract by
+# adding "- 'abstract'" to the classoptions.
+# SECOND you have to set the option "display_abstract: true".
+
+# some exmaple options
+#  11pt,%--------------------------------to have a document with font size: 11pt
+#  paper=a4,%------------------------to have a document with real paper size: a4
+#  pagesize,%--------to have a virtual page size that is equal to the paper size
+#  twoside,%---------------------------------to print on both sides of the paper
+#  %oneside,%-------------------to “print” just on one side of digitaly pdf page
+#  BCOR=2mm,%----------------------------------to reserve 2mm binding correction
+#  openright,%----------------------------to open new chapters on the right side
+#  titlepage=firstiscover%-----to specifie the first page as a cover/ image page
+# ]{scrbook}%-----------------------------to use the koma-script class "scrbook"
+classoption:
+  - 'twoside'
+  - 'twocolumn'
+
+# TITLEPAGE(S) SETTINGS
+# to have additional information (advisors name, …) in the publishers field
+custom_title_page: false
+
+# to have a half title (page)
+extratitle: true
+
+# this option needs extratitile to be true
+# EITER both false OR only one is true
+title_page_a: true
+title_page_b: false
+
+# to adjust page numbering if necessary
+page_number_after_toc: ~
+
+# activate / deactivate abtsract
+display_abstract: true
+
+# include table of contents (can also be set using --toc/--table-of-contents)
+toc: ture
+
+# if you want to have a onecolumn table of content set this option to true.
+# default is: true
+# if true, loading pkg "multicol" is mandatory
+onecol_toc: false
+after_toc: ~
+
+# level of section to include in table of contents
+toc-depth: 2
+
+# DEFAULT PACKAGES
+# option for geometry package, e.g. margin=1in; may be repeated for multiple options
+geometry: ~
+
+# sets margins, if geometry is not used (otherwise geometry overrides these)
+margin-left: ~
+margin-right: ~
+margin-top: ~
+margin-bottom: ~
+
+# adjusts line spacing using the setspace package, e.g. 1.25, 1.5
+linestretch: ~
+
+# font package for use with pdflatex; TeX Live includes many options,
+# documented in the LaTeX Font Catalogue. The default is Latin Modern.
+fontfamily: 'libertine'
+
+# options for package used as fontfamily; e.g. osf,sc with fontfamily set to
+# mathpazo provides Palatino with old-style figures and true small caps; may be
+# repeated for multiple options
+fontfamilyoptions: ~
+
+# font families for use with XeLaTeX or LuaLaTeX take the name of any system
+# font, using the fontspec package. Note that if CJKmainfont is used, the xecjk
+# package must be available.
+mainfont: 'Libertinus Serif'
+sansfont: 'Libertinus Sans'
+monofont: 'Libertinus Mono'
+mathfont: 'Libertinus Math'
+CJKmainfont: ~
+
+# options to use with mainfont, sansfont, monofont, mathfont, CJKmainfont in
+# xelatex and lualatex. Allow for any choices available through fontspec, such # as the OpenType features Numbers=OldStyle,Numbers=Proportional. May be
+# repeated for multiple options.
+mainfontoptions: ~
+sansfontoptions: ~
+monofontoptions: ~
+mathfontoptions: ~
+CJKoptions: ~
+
+# allows font encoding to be specified through fontenc package (with pdflatex); # default is T1 (see guide to LaTeX font encodings)
+fontenc: ~
+
+# to provide advanced font selection in XeLaTeX and LuaLaTeX
+fontspec: true
+
+# options to pass to the microtype package
+microtypeoptions: 'final'
+
+# add color to link text; automatically enabled if any of linkcolor, citecolor, # urlcolor, or toccolor are set (see pkg/ option "xcolor")
+colorlinks: true
+
+# color for internal links, citation links, external links, and links in table # of contents; uses options allowed by xcolor, including the dvipsnames,
+# svgnames, and x11names lists
+linkcolor: ~
+citecolor: ~
+urlcolor: ~
+toccolor: ~
+
+# causes links to be printed as footnotes
+links-as-notes: ~
+
+# EXTRA PACKAGES
+# advanced font selection in XeLaTeX and LuaLaTeX
+# enable system font access (needed by XeLaTex)
+# for: \setmainfont{...}, \setsansfont{...}, \setmonofont{...}
+# and  \setmathfont{...} see option "mainfont".
+fontspec: ~
+
+# to manage text 'layers' within koma-script
+scrlayer: ~
+
+# to define and manage page styles (see "fancyhdr" too)
+
+scrlayer-scrpage: ~
+
+# to control note columns parallel to the main text
+# to set side note column you need pkg "scrlayer-notecolumn"
+# you may want to set: \setkomafont{notecolumn.marginpar}{\footnotesize}
+scrlayer-notecolumn: ~
+notecolumnfontsize: '\footnotesize'
+
+abstract_pkg: false
+abstract_pkg_options: ~
+after_abstract: ~
+
+# to mix onecolumn and twocolumn modes for example for wide equations.
+# usage: \begin{strip}...\end{strip}
+cuted: ~
+
+# for url-sensitive linebreaks (needed by XeLaTex)
+url: ~
+
+# for fitch-style natural deduction proofs
+lplfitch: ~
+
+# for advanced math typesetting (loads all default math pkg)
+# if you set this option all the folowing packages will be loaded automatically
+# mathematical tools to use with amsmath
+# \usepackage{mathtools}
+# ams mathematical facilities for LaTeX
+# \usepackage{amsmath}# possibly loaded loaded somewhere else too
+# TeX fonts from the american mathematical society
+#  \usepackage{amsfonts}
+# additional mathematical symbols
+# \usepackage{amssymb}# possibly loaded loaded somewhere else too
+# typesetting of custom theorems (in ams style)
+#  \usepackage{amsthm}
+# dirac bra-ket and set notations
+#  \usepackage{braket}
+# for unicode (utf8) math typesettings support for XeTeX
+# for numbered cases (mappings) environment
+#  \usepackage{cases}
+# for proof trees in the style of the sequent calculus
+#  \usepackage{bussproofs}
+math: ~
+
+# to create tabular cells spanning multiple rows
+multirow: ~
+
+# to create (tabular cells spanning) multiple columns (load before pkg "bidi")
+multicol: ~
+
+# to create continuation headings and legends for floats
+ccaption: ~
+
+# to scale graphics relative to reference object (needs pkg "graphicx")
+# usage: \scalerel*{\includegraphics{inlinegraphic.pdf}}{O}
+scalerel: ~
+
+# to allow text to flow around graphics
+wrapfig: ~
+
+# to insert pictures into paragraphs (see pkg "picins")
+picinpar: ~
+
+# for driver-independent color extensions (see option "colorlinks")
+xcolor: ~
+xcoloroptions: 'usenames'
+
+# to create postscript and pdf graphics in TeX (see pkg "tikz")
+pgf: ~
+
+# for drawing functions in LaTeX
+# you may want to use specific tikz libraries:
+# \usetikzlibrary{shapes,arrows,chains,positioning,fit,automata}
+tikz: ~
+usetikzlibrary: ~
+
+# to not interpret latex commands but display them (see pkg "upquote")
+verbatim: ~
+
+# to typeset dropped capitals
+lettrine: ~
+
+# to avoid widows
+nowidow: ~
+nowidowoptions:
+  - 'defaultlines=3'
+  - 'all'
+
+# to generate lorem ipsum blind text text for testing purposes
+blindtext: ~
+
+# to generate sentences in kant's style for testing purposes
+kantlipsum: ~
+
+# to draw frame around pages to see margin changes for testing purposes
+showframe: ~
+
+# to print watermarks
+# firstpage to put a watermark text only on the first page
+# nostamp for quickly removing the “draft” status from a document
+draftwatermark: ~
+draftwatermarkoptions:
+  - 'firstpage'
+  - 'nostamp'
+  - 'titlepage'
+  - 'parskip=full'
+
+# to include the creative commons icons in my document
+ccicons: ~
+
+# set pagestyle (needs pkg "scrlayer-scrpage")
+scrheadings: ~
+
+# float (load pkg "float" before pkg "hyperref")
+float: ~
+
+# DEFAULT SETTINGS
+# uses document class settings for indentation (the default LaTeX template
+# otherwise removes indentation and adds space between paragraphs)
+indent: scrbook
+
+# disables default behavior of LaTeX template that redefines (sub)paragraphs as
+# sections, changing the appearance of nested headings in some classes
+subparagraph: ~
+
+# numbering depth for sections, if sections are numbered
+secnumdepth: 5
+
+# include list of figures, list of tables
+lof: false
+lot: false
+
+# to activate numbered sections (headdings)
+number-sections: true
+
+# an option for LaTeX’s \pagestyle{}. The default article class supports
+# ‘plain’ (default), ‘empty’, and ‘headings’; headings puts section titles in
+# the header.
+pagestyle: 'headings'
+
+# pandoc-citeproc citation style
+csl: './csl/chicago-author-date-de.csl'
+
+# pandoc-citeproc
+link-citations: true
+
+# bibliographic database
+bibliography: './bib/references.bib'
+# if you want to print out all items in your bibliography file regardles of
+# you mentioned them in your project, then uncomment the following 2 lines.
+nocite: |
+  @*
+
+# if you want to have a custom title for your bibliography specify it here
+reference-section-title: ~
+
+# bibliography style, when used with --natbib and --biblatex.
+biblio-style: ~
+
+# bibliography title, when used with --natbib and --biblatex.
+biblio-title: ~
+
+# list of options for biblatex.
+biblatexoptions: ~
+
+# list of options for natbib.
+natbiboptions: ~
+
+# EXTRA SETTINGS
+# for creative commons icons
+ccicons: true
+
+# to inject hyperref compatible metadata into the pdf
+hyperxmp: ~
+
+# to inlcude images (.pdf, .eps, .png)
+graphics: true
+
+scalerel: true
+
+# to mix onecolumn and twocolumn modes for example for wide equations.
+# usage: \begin{strip}...\end{strip}
+cuted: true
+
+# to create (tabular cells spanning) multiple columns
+multicol: true
+
+# typographical intervention aka matter of taste: set this to true if you want
+# to use one and only one single font (typeface) for the entire document
+# including headings (komascript uses bold sans font for headings per default).
+serif_headings: true
+
+theme:
+  colors:
+    bgcolor: ~
+    fgcolor: ~
+    textcolor: ~
+
+titlepage:
+  graphic: #'./titlepage/dummygraphic.pdf'
+  logo: #'./titlepage/dummylogo.pdf'
+...

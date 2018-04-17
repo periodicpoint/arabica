@@ -1,0 +1,1098 @@
+\PassOptionsToPackage{unicode=true}{hyperref} % options for packages loaded elsewhere
+\PassOptionsToPackage{hyphens}{url}
+$if(colorlinks)$
+\PassOptionsToPackage{dvipsnames,svgnames*,x11names*}{xcolor}
+$endif$
+
+\documentclass[$if(fontsize)$$fontsize$,$endif$$if(lang)$$babel-lang$,$endif$$if(papersize)$$papersize$paper,$endif$$if(beamer)$ignorenonframetext,$if(handout)$handout,$endif$$if(aspectratio)$aspectratio=$aspectratio$,$endif$$endif$$for(classoption)$$classoption$$sep$,$endfor$]{$documentclass$}
+
+%----------------------------------------------------------------EXTRA PACKAGES
+%-------------------------------advanced font selection in XeLaTeX and LuaLaTeX
+%---------------------------------enable system font access (needed by XeLaTex)
+%------------------for: \setmainfont{...}, \setsansfont{...}, \setmonofont{...} %---------------------------------and  \setmathfont{...} see option "mainfont".
+$if(fontspec)$
+  \usepackage{fontspec}
+$endif$
+
+%------------------------------------to manage text 'layers' within koma-script
+$if(scrlayer)$
+  \usepackage{scrlayer}
+$endif$
+
+%-------------------------to define and manage page styles (see "fancyhdr" too)
+$if(scrlayer-scrpage)$
+  \usepackage{scrlayer-scrpage}
+$endif$
+
+%-----------------------------to control note columns parallel to the main text
+$if(scrlayer-notecolumn)$
+  \usepackage{scrlayer-notecolumn}
+  $if(notecolumnfontsize)$
+    %--------------------set side note column (needs pkg "scrlayer-notecolumn")
+    \setkomafont{notecolumn.marginpar}{$notecolumnfontsize$}
+  $endif$
+$endif$
+
+%----------to mix onecolumn and twocolumn modes for example for wide equations.
+%--------------------------------------------usage: \begin{strip}...\end{strip}
+$if(cuted)$
+  \usepackage{cuted}
+$endif$
+
+%------------------------------for url-sensitive linebreaks (needed by XeLaTex)
+$if(url)$
+  \usepackage{url}
+$endif$
+
+%--------------------------------------for fitch-style natural deduction proofs
+$if(lplfitch)$
+  \usepackage{lplfitch}
+$endif$
+
+%--------------------for advanced math typesetting (loads all default math pkg)
+$if(math)$
+  %--------------------------------------mathematical tools to use with amsmath
+  \usepackage{mathtools}
+  %---------------------------------------ams mathematical facilities for LaTeX
+  \usepackage{amsmath%----------------possibly loaded loaded somewhere else too
+  %----------------------------TeX fonts from the american mathematical society
+  \usepackage{amsfonts}
+  %---------------------------------------------additional mathematical symbols
+  \usepackage{amssymb}%---------------possibly loaded loaded somewhere else too
+  %-------------------------------typesetting of custom theorems (in ams style)
+  \usepackage{amsthm}
+  %---------------------------------------------dirac bra-ket and set notations
+  \usepackage{braket}
+  %----------------------for unicode (utf8) math typesettings support for XeTeX
+  %-----------------------------------for numbered cases (mappings) environment
+  \usepackage{cases}
+  %------------------------for proof trees in the style of the sequent calculus
+  \usepackage{bussproofs}
+$endif$
+
+%--------------------------------to create tabular cells spanning multiple rows
+$if(multirow)$
+  \usepackage{multirow}
+$endif$
+
+%--to create (tabular cells spanning) multiple columns (load before pkg "bidi")
+$if(multicol)$
+  \usepackage{multicol}
+$endif$
+
+%------------------------to create continuation headings and legends for floats
+$if(ccaption)$
+  \usepackage{ccaption}
+$endif$
+
+%---------to scale graphics relative to reference object (needs pkg "graphicx")
+%---------------------usage: \scalerel*{\includegraphics{inlinegraphic.pdf}}{O}
+$if(scalerel)$
+  \usepackage{scalerel}
+$endif$
+
+%-----------------------------------------to allow text to flow around graphics
+$if(wrapfig)$
+  \usepackage{wrapfig}
+$endif$
+
+%-------------------------to insert pictures into paragraphs (see pkg "picins")
+$if(picinpar)$
+  \usepackage{picinpar}
+$endif$
+
+%-------------for driver-independent color extensions (see option "colorlinks")
+$if(xcolor)$
+  \usepackage[$for(xcoloroptions)$$sep$,$endfor$]{xcolor}
+$endif$
+
+%-----------------to create postscript and pdf graphics in TeX (see pkg "tikz")
+$if(pgf)$
+  \usepackage{pgf}
+$endif$
+
+$if(tikz)$
+  \usepackage{tikz}%-----------------------------for drawing functions in LaTeX
+  $if(usetikzlibrary)$
+    \usetikzlibrary{$usetikzlibrary$}
+  $endif$
+$endif$
+
+%----------to not interpret latex commands but display them (see pkg "upquote")
+$if(verbatim)$
+  \usepackage{verbatim}
+$endif$
+
+%---------------------------------------------------to typeset dropped capitals
+$if(lettrine)$
+  \usepackage{lettrine}
+$endif$
+
+%---------------------------------------------------------------to avoid widows
+$if(nowidow)$
+  \usepackage[$for(nowidowoptions)$$sep$,$endfor$]{nowidow}
+$endif$
+
+%------------------to generate lorem ipsum blind text text for testing purposes
+$if(blindtext)$
+  \usepackage{blindtext}
+$endif$
+
+%--------------------to generate sentences in kant's style for testing purposes
+$if(kantlipsum)$
+  \usepackage{kantlipsum}
+$endif$
+
+%---------to draw frame around pages to see margin changes for testing purposes
+$if(showframe)$
+  \usepackage{showframe}
+$endif$
+
+%-----------------------------------------------------------to print watermarks
+$if(draftwatermark)$
+  \usepackage[$for(draftwatermarkoptions)$$sep$,$endfor$]{draftwatermark}
+$endif$
+
+%--------------------------to include the creative commons icons in my document
+$if(ccicons)$
+  \usepackage{ccicons}
+$endif$
+
+%----------------------------------set pagestyle (needs pkg "scrlayer-scrpage")
+$if(scrheadings)$
+  \pagestyle{scrheadings}
+$endif$
+
+%--------------------------------float (load pkg "float" before pkg "hyperref")
+$if(float)$
+  \usepackage{float}
+$endif$
+
+$if(beamer)$
+\setbeamertemplate{caption}[numbered]
+\setbeamertemplate{caption label separator}{: }
+\setbeamercolor{caption name}{fg=normal text.fg}
+\beamertemplatenavigationsymbols$if(navigation)$$navigation$$else$empty$endif$
+$endif$
+$if(beamerarticle)$
+\usepackage{beamerarticle} % needs to be loaded first
+$endif$
+
+$if(fontfamily)$
+\usepackage[$for(fontfamilyoptions)$$fontfamilyoptions$$sep$,$endfor$]{$fontfamily$}
+$else$
+\usepackage{lmodern}
+$endif$
+$if(linestretch)$
+\usepackage{setspace}
+\setstretch{$linestretch$}
+$endif$
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[$if(fontenc)$$fontenc$$else$T1$endif$]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provides euro and other symbols
+\else % if luatex or xelatex
+$if(mathspec)$
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{unicode-math}
+  \fi
+$else$
+  \usepackage{unicode-math}
+$endif$
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+$for(fontfamilies)$
+  \newfontfamily{$fontfamilies.name$}[$fontfamilies.options$]{$fontfamilies.font$}
+$endfor$
+$if(mainfont)$
+    \setmainfont[$for(mainfontoptions)$$mainfontoptions$$sep$,$endfor$]{$mainfont$}
+$endif$
+$if(sansfont)$
+    \setsansfont[$for(sansfontoptions)$$sansfontoptions$$sep$,$endfor$]{$sansfont$}
+$endif$
+$if(monofont)$
+    \setmonofont[Mapping=tex-ansi$if(monofontoptions)$,$for(monofontoptions)$$monofontoptions$$sep$,$endfor$$endif$]{$monofont$}
+$endif$
+$if(mathfont)$
+$if(mathspec)$
+  \ifxetex
+    \setmathfont(Digits,Latin,Greek)[$for(mathfontoptions)$$mathfontoptions$$sep$,$endfor$]{$mathfont$}
+  \else
+    \setmathfont[$for(mathfontoptions)$$mathfontoptions$$sep$,$endfor$]{$mathfont$}
+  \fi
+$else$
+  \setmathfont[$for(mathfontoptions)$$mathfontoptions$$sep$,$endfor$]{$mathfont$}
+$endif$
+$endif$
+$if(CJKmainfont)$
+  \ifxetex
+    \usepackage{xeCJK}
+    \setCJKmainfont[$for(CJKoptions)$$CJKoptions$$sep$,$endfor$]{$CJKmainfont$}
+  \fi
+$endif$
+$if(luatexjapresetoptions)$
+  \ifluatex
+    \usepackage[$for(luatexjapresetoptions)$$luatexjapresetoptions$$sep$,$endfor$]{luatexja-preset}
+  \fi
+$endif$
+$if(CJKmainfont)$
+  \ifluatex
+    \usepackage[$for(luatexjafontspecoptions)$$luatexjafontspecoptions$$sep$,$endfor$]{luatexja-fontspec}
+    \setmainjfont[$for(CJKoptions)$$CJKoptions$$sep$,$endfor$]{$CJKmainfont$}
+  \fi
+$endif$
+\fi
+$if(beamer)$
+$if(theme)$
+\usetheme[$for(themeoptions)$$themeoptions$$sep$,$endfor$]{$theme$}
+$endif$
+$if(colortheme)$
+\usecolortheme{$colortheme$}
+$endif$
+$if(fonttheme)$
+\usefonttheme{$fonttheme$}
+$endif$
+$if(mainfont)$
+\usefonttheme{serif} % use mainfont rather than sansfont for slide text
+$endif$
+$if(innertheme)$
+\useinnertheme{$innertheme$}
+$endif$
+$if(outertheme)$
+\useoutertheme{$outertheme$}
+$endif$
+$endif$
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+%-----------------------------------------------------se microtype if available
+%---------microtype for subliminal refinements towards typographical perfection
+\IfFileExists{microtype.sty}{%
+\usepackage[$for(microtypeoptions)$$microtypeoptions$$sep$,$endfor$]{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+$if(indent)$
+$else$
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+$endif$
+$if(verbatim-in-note)$
+\usepackage{fancyvrb}
+$endif$
+$if(colorlinks)$
+\usepackage{xcolor}
+$endif$
+%--------------------------------------extensive support for hypertext in LaTeX
+\usepackage{hyperref}
+\hypersetup{
+$if(title-meta)$
+            pdftitle={$title-meta$},
+$endif$
+$if(author-meta)$
+            pdfauthor={$author-meta$},
+$endif$
+$if(keywords)$
+            pdfkeywords={$for(keywords)$$keywords$$sep$, $endfor$},
+$endif$
+$if(colorlinks)$
+            colorlinks=true,
+            linkcolor=$if(linkcolor)$$linkcolor$$else$Maroon$endif$,
+            citecolor=$if(citecolor)$$citecolor$$else$Blue$endif$,
+            urlcolor=$if(urlcolor)$$urlcolor$$else$Blue$endif$,
+$else$
+            pdfborder={0 0 0},
+$endif$
+            breaklinks=true}
+\urlstyle{same} % don't use monospace font for urls
+$if(verbatim-in-note)$
+\VerbatimFootnotes % allows verbatim text in footnotes
+$endif$
+$if(geometry)$
+\usepackage[$for(geometry)$$geometry$$sep$,$endfor$]{geometry}
+$endif$
+$if(beamer)$
+\newif\ifbibliography
+$endif$
+%-----------------------listings to typeset source code (see pkg "listings-ex")
+$if(listings)$
+\usepackage{listings}
+\newcommand{\passthrough}[1]{#1}
+$endif$
+$if(lhs)$
+\lstnewenvironment{code}{\lstset{language=Haskell,basicstyle=\small\ttfamily}}{}
+$endif$
+$if(highlighting-macros)$
+$highlighting-macros$
+$endif$
+$if(tables)$
+%------------------------------------booktabs for beautiful high quality tables
+\usepackage{longtable,booktabs}
+$if(beamer)$
+\usepackage{caption}
+% These lines are needed to make table captions work with longtable:
+\makeatletter
+\def\fnum@table{\tablename~\thetable}
+\makeatother
+$else$
+% Fix footnotes in tables (requires footnote package)
+\IfFileExists{footnote.sty}{\usepackage{footnote}\makesavenoteenv{longtable}}{}
+$endif$
+$endif$
+$if(graphics)$
+%----------------------------------------graphicx to embed pictures in document
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+$endif$
+$if(beamer)$
+% Prevent slide breaks in the middle of a paragraph:
+\widowpenalties 1 10000
+\raggedbottom
+$if(section-titles)$
+\setbeamertemplate{part page}{
+\centering
+\begin{beamercolorbox}[sep=16pt,center]{part title}
+  \usebeamerfont{part title}\insertpart\par
+\end{beamercolorbox}
+}
+\setbeamertemplate{section page}{
+\centering
+\begin{beamercolorbox}[sbooktabsep=12pt,center]{part title}
+  \usebeamerfont{section title}\insertsection\par
+\end{beamercolorbox}
+}
+\setbeamertemplate{subsection page}{
+\centering
+\begin{beamercolorbox}[sep=8pt,center]{part title}
+  \usebeamerfont{subsection title}\insertsubsection\par
+\end{beamercolorbox}
+}
+\AtBeginPart{
+  \frame{\partpage}
+}
+\AtBeginSection{
+  \ifbibliography
+  \else
+    \frame{\sectionpage}
+  \fi
+}
+\AtBeginSubsection{
+  \frame{\subsectionpage}
+}
+$endif$
+$endif$
+$if(links-as-notes)$
+% Make links footnotes instead of hotlinks:
+\DeclareRobustCommand{\href}[2]{#2\footnote{\url{#1}}}
+$endif$
+$if(strikeout)$
+\usepackage[normalem]{ulem}
+% avoid problems with \sout in headers with hyperref:
+\pdfstringdefDisableCommands{\renewcommand{\sout}{}}
+$endif$
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+$if(numbersections)$
+\setcounter{secnumdepth}{$if(secnumdepth)$$secnumdepth$$else$5$endif$}
+$else$
+\setcounter{secnumdepth}{0}
+$endif$
+$if(beamer)$
+$else$
+$if(subparagraph)$
+$else$
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+$endif$
+$endif$
+$if(pagestyle)$
+\pagestyle{$pagestyle$}
+$endif$
+
+% set default figure placement to htbp
+\makeatletter
+
+\def\fps@figure{htbp}
+\makeatother
+
+$for(header-includes)$
+$header-includes$
+$endfor$
+$if(lang)$
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[shorthands=off,$for(babel-otherlangs)$$babel-otherlangs$,$endfor$main=$babel-lang$]{babel}
+$if(babel-newcommands)$
+  $babel-newcommands$
+$endif$
+\else
+  %----load polyglossia as late as possible as it *could* call bidi if RTL lang
+  %-----------------------------------------------------(e.g. Hebrew or Arabic)
+  %----------------------polyglossia is a babel replacement (needed by XeLaTeX)
+  \usepackage{polyglossia}
+  \setmainlanguage[$polyglossia-lang.options$]{$polyglossia-lang.name$}
+$for(polyglossia-otherlangs)$
+  \setotherlanguage[$polyglossia-otherlangs.options$]{$polyglossia-otherlangs.name$}
+$endfor$
+\fi
+$endif$
+$if(dir)$
+\ifxetex
+  % load bidi as late as possible as it modifies e.g. graphicx
+  $if(latex-dir-rtl)$
+  \usepackage[RTLdocument]{bidi}
+  $else$
+  \usepackage{bidi}
+  $endif$
+\fi
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \TeXXeTstate=1
+  \newcommand{\RL}[1]{\beginR #1\endR}
+  \newcommand{\LR}[1]{\beginL #1\endL}
+  \newenvironment{RTL}{\beginR}{\endR}
+  \newenvironment{LTR}{\beginL}{\endL}
+\fi
+$endif$
+$if(natbib)$
+\usepackage[$natbiboptions$]{natbib}
+\bibliographystyle{$if(biblio-style)$$biblio-style$$else$plainnat$endif$}
+$endif$
+$if(biblatex)$
+\usepackage[$if(biblio-style)$style=$biblio-style$,$endif$$for(biblatexoptions)$$biblatexoptions$$sep$,$endfor$]{biblatex}
+$for(bibliography)$
+\addbibresource{$bibliography$}
+$endfor$
+$endif$
+
+%---------------------------------------------------------------------BUG FIXES
+%-----------------------------------------------------------------longtable bug
+%--------------------------------------------------------------solve the error:
+%------------------"! Package longtable Error: longtable not in 1-column mode."
+%------------------------------------occouring in twocolumn mode (class option)
+%--------------------------see issue: https://github.com/jgm/pandoc/issues/1023
+%-------------------------------------source: Marco Torchian@tex.stackexchange:
+%---https://tex.stackexchange.com/questions/161431/how-to-solve-longtable-is-not-in-1-column-mode-error?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa
+%---------------------redefine longtable because it doesn't work in multicolumn
+%---------------------------------------------------------------------start fix
+\makeatletter
+\let\oldlt\longtable
+\let\endoldlt\endlongtable
+\def\longtable{\@ifnextchar[\longtable@i \longtable@ii}
+\def\longtable@i[#1]{\begin{figure}[t]
+\onecolumn
+\begin{minipage}{0.5\textwidth}
+\oldlt[#1]
+}
+\def\longtable@ii{\begin{figure}[t]
+\onecolumn
+\begin{minipage}{0.5\textwidth}
+\oldlt
+}
+\def\endlongtable{\endoldlt
+\end{minipage}
+\twocolumn
+\end{figure}}
+\makeatother
+%-----------------------------------------------------------------------end fix
+
+%----------------------------------------------------------------EXTRA SETTINGS
+%------------------------------------to make TeX less fussy about line breaking
+$if(sloppy)$
+  \sloppy
+$endif$
+
+%-----------------------------------two typeset table of contents in two column
+$if(twocol_toc)$
+  \unsettoc{toc}{onecolumn}
+$endif$
+
+%-----if set, then one and only one single font is used for the entire document
+%------------------------------------------------------------including headings
+$if(serif_headings)$
+  \setkomafont{disposition}{\normalfont}
+$endif$
+
+%----------------------------------------------CUSTOM BOOK TEMPLATE STARTS HERE
+%-----------------here we define all the fields for the titlepages available by
+%---------------------------------------------------------by the scrbook class.
+%-----------------------------those fields will be printed later by \maketitle.
+%--------------------------------------define the layout of optional extratitle
+$if(extratitle)$
+  $if(title_page_a)$
+    %------------------------------------------define the the extratitle page A
+    \extratitle{%
+      $if(extratitle)$
+        $if(display_collective)$
+          $if(collective)$
+            \begin{flushright}
+              \begin{large}
+                $for(collective)$
+                  $if(collective.display_name)$
+                    \textsc{$collective.display_name$}
+                    \vspace{0.05\textheight}
+                  $endif$
+                $endfor$
+              \end{large}
+            \end{flushright}
+          $endif$
+        $else$
+          $if(creators)$
+            \begin{flushright}
+              \begin{large}
+                $for(creators)$
+                  $if(creators.creator)$
+                    $for(creators.creator)$
+                      $if(creators.creator.firstname)$
+                        \textsc{$creators.creator.firstname$}
+                      $endif$
+                      $if(creators.creator.lastname)$
+                        \textsc{$creators.creator.lastname$}
+                      $endif$
+                    $endfor$
+                  $endif$
+                $endfor$
+              \end{large}
+            \end{flushright}
+            \vspace{0.05\textheight}
+          $else$
+            $if(author)$
+              \begin{flushright}
+                \begin{large}
+                  $for(author)$
+                    \textsc{$author$}$sep$,
+                  $endfor$
+                \end{large}
+              \end{flushright}
+            $endif$
+          $endif$
+        $endif$
+      $endif$
+      $if(title)$
+        \begin{flushright}
+          \begin{Huge}
+            $title$
+          \end{Huge}
+        \end{flushright}
+      $endif$
+      $if(subtitle)$
+        \begin{flushright}
+          \begin{LARGE}
+            $subtitle$
+          \end{LARGE}
+        \end{flushright}
+      $endif$
+      $if(titlepage.graphic)$
+        \vfill
+        \begin{figure}[ht]
+          \begin{center}
+            \includegraphics[width=\textwidth]{$titlepage.graphic$}
+          \end{center}
+        \end{figure}
+        \vfill
+      $endif$
+      $if(year)$
+        \vfill
+        \begin{flushright}
+          \begin{Large}
+            $year$
+          \end{Large}
+        \end{flushright}
+      $endif$
+    }
+  $else$
+    $if(title_page_b)$
+      %----------------------------------------define the the extratitle page B
+      \extratitle{%
+        $if(extratitle)$
+          $if(titlepage.logo)$
+            \begin{figure}[ht!]
+              \begin{flushleft}
+                \includegraphics[width=0.2\textwidth]{$titlepage.logo$}
+              \end{flushleft}
+            \end{figure}
+            \\
+          $endif$
+          $if(institute)$
+          \begin{footnotesize}
+            $for(institute)$
+              $institute$$sep$\\
+            $endfor$
+          \end{footnotesize}
+          \vspace{0.02\textheight}
+          \vfill
+          $endif$
+          $if(subject)$
+          \begin{center}
+            $subject$
+          \end{center}
+          $endif$
+          \vspace{0.02\textheight}
+          $if(title)$
+            \begin{center}
+              \begin{Huge}
+                $title$
+              \end{Huge}
+            \end{center}
+          $endif$
+          \vspace{0.01\textheight}
+          $if(subtitle)$
+            \begin{center}
+              \begin{LARGE}
+                $subtitle$
+              \end{LARGE}
+            \end{center}
+          $endif$
+          \vspace{0.01\textheight}
+          $if(creators)$
+          \begin{center}
+            $for(creators)$
+              $if(creators.creator)$
+                $for(creators.creator)$
+                  $if(creators.creator.firstname)$
+                    \textsc{$creators.creator.firstname$}
+                  $endif$
+                  $if(creators.creator.lastname)$
+                    \textsc{$creators.creator.lastname$}
+                  $endif$
+                  $if(creators.creator.contact)$
+                    \\ \href{mailto:$creators.creator.contact$}{$creators.creator.contact$}
+                  $endif$
+                  $if(creators.creator.id)$
+                    \\($creators.creator.id$)
+                  $endif$
+                $endfor$
+              $endif$$sep$\\
+            $endfor$
+          \end{center}
+          \vspace{0.01\textheight}
+          $else$
+            $if(author)$
+              \begin{center}
+                \begin{large}
+                  $for(author)$
+                    \textsc{$author$}$sep$,
+                  $endfor$
+                \end{large}
+              \end{center}
+            $endif$
+          $endif$
+          \vspace{0.01\textheight}
+          $if(place)$
+            \begin{center}
+              \begin{Large}
+                $place$
+              \end{Large}
+            \end{center}
+          $endif$
+          $if(date)$
+            \begin{center}
+              \begin{Large}
+                $date$
+              \end{Large}
+            \end{center}
+          $endif$
+          $if(default.extratitle_line)$
+            \vspace{0.02\textheight}
+            \begin{center}
+              \begin{large}
+                $default.extratitle_line$
+              \end{large}
+            \end{center}
+          $endif$
+        $endif$
+        \vfill
+        $if(advisors)$
+          \begin{flushleft}
+            \begin{footnotesize}
+              $if(default.submission.label)$
+                $default.submission.label$\\%
+                $default.submission.date$\\
+              $endif$
+              $if(default.advisor.label)$
+                $default.advisor.label$\\%
+              $endif$
+              $if(advisors)$
+                $for(advisors)$
+                  $if(advisors.advisor)$
+                    $for(advisors.advisor)$
+                      $if(advisors.advisor.title)$
+                        $advisors.advisor.title$
+                      $endif$
+                      $if(advisors.advisor.firstname)$
+                        \textsc{$advisors.advisor.firstname$}
+                      $endif$
+                      $if(advisors.advisor.lastname)$
+                        \textsc{$advisors.advisor.lastname$}
+                      $endif$
+                      $if(advisors.advisor.contact)$
+                        (\url{$advisors.advisor.contact$})
+                      $endif$
+                      $if(advisors.advisor.role)$
+                        ($advisors.advisor.role$)
+                      $endif$
+                    $endfor$
+                  $endif$$sep$\\
+                $endfor$
+              $endif$
+            \end{footnotesize}
+          \end{flushleft}
+        $endif$
+        \vfill
+      }
+    $endif$
+  $endif$
+$endif$
+%----------------------------------------------define the title page head field
+\titlehead{%
+  $if(titlehead)$
+    $titlehead$
+  $endif$%
+}
+%-------------------------------------------------------define the subject line
+\subject{%
+  $if(subject)$
+    $subject$
+  $endif$%
+}
+%---------------------------------------------------------define the title line
+\title{%
+  $if(title)$
+    $title$
+  $endif$%
+}
+%------------------------------------------------------define the subtitle line
+\subtitle{%
+  $if(subtitle)$
+    $subtitle$
+  $endif$%
+}
+%--------------------------------------------------------define the author line
+\author{%
+  $if(display_collective)$
+    $if(collective)$
+      \begin{flushright}
+        \begin{large}
+          $for(collective)$
+            $if(collective.display_name)$
+              \textsc{$collective.display_name$}
+              \vspace{0.05\textheight}
+            $endif$
+          $endfor$
+        \end{large}
+      \end{flushright
+    $endif$
+  $else$
+    $if(creators)$
+      $for(creators)$
+        $if(creators.creator)$
+          $for(creators.creator)$
+            $if(creators.creator.firstname)$
+              \textsc{$creators.creator.firstname$}
+            $endif$
+            $if(creators.creator.lastname)$
+              \textsc{$creators.creator.lastname$}
+            $endif$
+            $if(creators.creator.contact)$
+                \\ \href{mailto:$creators.creator.contact$}{$creators.creator.contact$}
+            $endif$
+          $endfor$
+        $endif$$sep$\and%
+      $endfor$
+      \\
+    $else$
+      \begin{flushright}
+        \begin{large}
+          $if(author)$
+            $for(author)$
+              \textsc{$author$}$sep$\and
+            $endfor$
+          $endif$
+        \end{large}
+      \end{flushright}
+    $endif$
+  $endif$%
+}
+%----------------------------------------------------------define the date line
+\date{%
+  $if(place)$
+    $place$,
+  $endif$
+  $if(date)$
+    $date$
+  $endif$%
+}
+%--------------------------------------------------------define publishers line
+\publishers{%
+  $if(publishers)$
+    $publishers$
+  $else$
+    $if(version)$
+      \begin{normalsize}
+        \href{$version.link$}{$version.timestamp$}\\
+        \href{$version.link$}{$version.hash$}\\
+      \end{normalsize}
+    $endif$
+  $endif$
+}
+%---------------------------------------------------define the upper title back
+\uppertitleback{%
+  $if(default.object_id.label)$
+    $default.object_id.label$\\
+  $endif$
+  $if(title)$
+    $title$
+  $endif$
+  $if(default.object_id.symbol)$
+    $default.object_id.symbol$
+  $endif$
+  $if(doi)$
+    \url{$doi$}\\
+    \\
+  $endif$
+  $if(default.version.label)$
+    $default.version.label$\\
+  $endif$
+  $if(version)$
+    \begin{normalsize}
+      \href{$version.link$}{$version.timestamp$}\\
+      \href{$version.link$}{$version.hash$}\\
+    \end{normalsize}
+    \\
+  $endif$
+  $if(default.person_id.label)$
+    $default.person_id.label$\\
+  $endif$
+  $if(display_collective)$
+    $if(collective)$
+      $for(collective)$
+        $if(collective.label)$
+          $collective.label$
+        $endif$
+        $if(collective.name)$
+          \textsc{$collective.name$}\\
+        $endif$
+        $if(collective.statement)$
+          $collective.statement$\\
+        $endif$
+        $if(collective.refer_to)$
+          $collective.refer_to$\\
+        $endif$
+      $endfor$
+      \\
+    $endif$
+  $else$
+    $if(creators)$
+      $for(creators)$
+        $if(creators.creator)$
+          $for(creators.creator)$
+            $if(creators.creator.firstname)$
+              \textsc{$creators.creator.firstname$}
+            $endif$
+            $if(creators.creator.lastname)$
+              \textsc{$creators.creator.lastname$}
+            $endif$
+            $if(creators.creator.orcid)$
+              $if(default.person_id.symbol)$
+                $default.person_id.symbol$
+              $endif$
+              \url{$creators.creator.orcid$}
+            $endif$
+          $endfor$
+        $endif$$sep$,
+      $endfor$
+      \\
+      \\
+    $endif$
+  $endif$
+  $if(default.license)$
+    $if(default.license.label)$
+      $default.license.label$\\
+    $endif$
+    $if(default.license.symbol)$
+      $default.license.symbol$~
+    $endif$
+    $if(license.long)$
+      $license.long$
+    $endif$
+    $if(license.short)$
+      $license.short$\\
+    $endif$
+    $if(license.url)$
+      \url{$license.url$}\\
+    $endif$
+    $if(license.year)$
+      $license.year$
+    $endif$
+    $if(license.holder)$
+      \textsc{$license.holder$}
+    $endif$
+    $if(license.email)$
+      \href{mailto:$license.email$}{$license.email$}\\
+      \\
+    $endif$
+  $endif$
+  $if(web)$
+    $default.web.label$\\
+    \url{$web$}\\
+    \\
+  $else$
+    $if(uppertitleback)$
+      $uppertitleback$
+    $endif$
+  $endif$%
+}
+%---------------------------------------------------define the lower title back
+\lowertitleback{%
+  $if(tools)$
+    $for(tools)$
+      $if(tools.description)$
+        $tools.description$
+        \\
+      $endif$
+      $if(tools.stack)$
+        $for(tools.stack)$
+          $if(tools.stack.symbol)$
+            \scalerel*{$tools.stack.symbol$}{O}~
+            %\scalerel*{\includegraphics{$tools.stack.symbol$}}{O}
+          $endif$
+          $if(tools.stack.label)$
+            $tools.stack.label$~
+          $endif$
+          $if(tools.stack.url)$
+            \url{$tools.stack.url$}
+          $endif$
+        $endfor$
+      $endif$$sep$\\
+    $endfor$
+  $else$
+    $if(uppertitleback)$
+      $uppertitleback$
+    $endif$
+  $endif$%
+}
+%-------------------------------------------------------------define dedication
+\dedication{%
+  $if(dedication)$
+    $dedication$
+  $endif$%
+}
+
+%----------------------------------------------------------DOCUMENT STARTS HERE
+\begin{document}
+
+%------------------------------------------------------print title page(s) here
+$if(custom_title_page)$
+  %-----------------------------if set define and print custom title pages here
+  \begin{titlepage}
+    ...
+  \end{titlepage}
+$else$
+  %----------------------------------------------print default title pages here
+  \maketitle
+$endif$
+
+%--------------------------------------------------------start forntmatter here
+\frontmatter
+
+$if(title)$
+  $if(beamer)$
+    \frame{\titlepage}
+  $else$
+    \maketitle
+  $endif$
+  $if(article)$
+    $if(abstract)$
+      \begin{abstract}
+        $abstract$
+      \end{abstract}
+    $endif$
+  $endif$
+$endif$
+
+$for(include-before)$
+$include-before$
+
+$endfor$
+
+$if(toc)$
+$if(beamer)$
+\begin{frame}
+\tableofcontents[hideallsubsections]
+\end{frame}
+$else$
+{
+$if(colorlinks)$
+\hypersetup{linkcolor=$if(toccolor)$$toccolor$$else$$endif$}
+$endif$
+\setcounter{tocdepth}{$toc-depth$}
+\tableofcontents
+}
+$endif$
+$endif$
+$if(lot)$
+\listoftables
+$endif$
+$if(lof)$
+\listoffigures
+$endif$
+
+%-----------------------------------------------------------CONTENT STARTS HERE
+$body$
+%-------------------------------------------------------------CONTENT ENDS HERE
+
+$if(natbib)$
+$if(bibliography)$
+$if(biblio-title)$
+$if(book-class)$
+\renewcommand\bibname{$biblio-title$}
+$else$
+\renewcommand\refname{$biblio-title$}
+$endif$
+$endif$
+$if(beamer)$
+\begin{frame}[allowframebreaks]{$biblio-title$}
+\bibliographytrue
+$endif$
+\bibliography{$for(bibliography)$$bibliography$$sep$,$endfor$}
+$if(beamer)$
+\end{frame}
+$endif$
+
+$endif$
+$endif$
+$if(biblatex)$
+$if(beamer)$
+\begin{frame}[allowframebreaks]{$biblio-title$}
+\bibliographytrue
+\printbibliography[heading=none]
+\end{frame}
+$else$
+\printbibliography$if(biblio-title)$[title=$biblio-title$]$endif$
+$endif$
+
+$endif$
+$for(include-after)$
+$include-after$
+
+$endfor$
+\end{document}
