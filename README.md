@@ -44,7 +44,8 @@ Of particular importance are the *metadata* and *settings* files: `./settings/00
 The `arabica.template` file may work as long as you provide some basic variables used in this template file.
 
 # Other
-## Read out your current default template execude: `pandoc -D latex > default.latex`.
+1. Read out your current default template execude:
+`pandoc -D latex > default.latex`.
 
 # References and Credits
 1. Plot graphics: [Gnuplot](http://gnuplot.sourceforge.net/demo_5.0/hidden2.html)
