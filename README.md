@@ -47,7 +47,7 @@ The `arabica.template` file may work as long as you provide some basic variables
 ## Read out your current default template execude: `pandoc -D latex > default.latex`.
 
 # References and Credits
-1. Plot graphics: [Gnuplot](file:///home/martin/library/storage/RVTFSCUF/hidden2.html)
+1. Plot graphics: [Gnuplot](http://gnuplot.sourceforge.net/demo_5.0/hidden2.html)
 2. Blind text: [Jasper Van der Jeugt lorem-markdownum](https://github.com/jaspervdj/lorem-markdownum)
 3. Bug fix by [Marco Torchiano \@ StackExchange](https://tex.stackexchange.com/questions/161431/how-to-solve-longtable-is-not-in-1-column-mode-error?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa) see [Pandoc issue 1023](https://github.com/jgm/pandoc/issues/1023).
 4. [Atom editor](https://atom.io/)
