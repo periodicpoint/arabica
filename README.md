@@ -7,6 +7,7 @@ The *template* itself lives in `./controls/`.
 
 # Thanks
 The [*arabica boilerplate*](https://github.com/qualiacode/arabica) is inspired by the [pandoc latex template *eisvogel* by Wandmalfarbe](https://github.com/Wandmalfarbe/pandoc-latex-template) and was built with the help of the following sources and tools: [References and Credits](#references-and-credits).
+For other projects like the one at hand pleas see [the list of user contributed templates at the pandoc wiki](https://github.com/jgm/pandoc/wiki/User-contributed-templates).
 
 # Installation
 ## Preconditions
