@@ -43,6 +43,7 @@ documentclass: 'scrbook'
 classoption:
   - 'twoside'
   - 'twocolumn'
+  - 'parskip=full'
 
 # TITLEPAGE(S) SETTINGS
 # to have additional information (advisors name, …) in the publishers field
@@ -252,7 +253,6 @@ draftwatermarkoptions:
   - 'firstpage'
   - 'nostamp'
   - 'titlepage'
-  - 'parskip=full'
 
 # to include the creative commons icons in my document
 ccicons: ~
@@ -266,7 +266,7 @@ float: ~
 # DEFAULT SETTINGS
 # uses document class settings for indentation (the default LaTeX template
 # otherwise removes indentation and adds space between paragraphs)
-indent: scrbook
+indent: ~
 
 # disables default behavior of LaTeX template that redefines (sub)paragraphs as
 # sections, changing the appearance of nested headings in some classes

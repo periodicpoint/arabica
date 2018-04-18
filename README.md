@@ -26,28 +26,76 @@ The *pandoc template* itself lives in `./controls/`.
 3. Done!
 
 # Usage
+## Copy and paste (and rename)
 1. Copy the entire *arabica boilerplate* located at your local templates to your directory of your projects: `cp /path/to/your/templates/arabica/* /path/to/your/projects/projectname/`
 2. Go to your project directory: `cd /path/to/your/projects/projectname/`
 3. Delete unwanted files like `./examples`: `rm -vrf examples/*`
+
+## Metadata settings
+1. Go to `./settings/00_01_metadata.yaml` and fill in your data e.g. author, title, year, …
+2. Put your values (data) in single quotes.
+3. If you want to leave a key undifined, then enter a tilde.
+3. Example:
+
+```yaml
+title: &title 'Short title'
+
+subtitle: &subtitle ~
+
+author: &author
+  - 'Jane Roe'
+  - 'John Doe'
+```
+
+## LaTeX template settings
+1. You can leave the defaults and you will be fine most of the time.
+2. If you want to change things, then the same rules as in [Metadata settings](##metadata-settings) apply.
+3. Go to `./settings/00_02_settings.yaml` and
 4. Fill in the gaps, set your settings.
-5. Execute pandoc:
+5. Example:
+
+```yaml
+classoption:
+  - 'twoside'
+  - 'twocolumn'
+  - 'parskip=full'
+
+custom_title_page: false
+```
+
+## Write (most importantly)
+1. Go to `./core/` and write you markdown files.
+2. Organise them as you like but keep in mind that pandoc will append them sequentially by alpha-numeric ordering of your file names.
+3. Good example:
+
+```
+01_introduction.md
+02_mainpart.md
+03_conclusion.md
+```
+
+## Run (pandoc)
+1. Execute pandoc with the follwing parameters:
 ```shell
 pandoc --data-dir=$HOME/path/to/your/projects/projectname/ -s -o ./output/projectname.pdf --filter pandoc-crossref --filter pandoc-citeproc --pdf-engine=xelatex --top-level-division=chapter --number-sections --template $HOME/path/to/your/projects/projectname/controls/arabica.latex ./core/*.md ./settings/*.yaml
 ```
-6. Done!
+2. Done!
 
-7. Alternatively you can omit the long path in the `--template` option by copying the `arabica.latex` template located at `./controls/arabica.latex` to the default directory of your pandoc templates located at `~/.pandoc/templates/`.
+3. Alternatively you can omit the long path in the `--template` option by copying the `arabica.latex` template located at `./controls/arabica.latex` to the default directory of your pandoc templates located at `~/.pandoc/templates/`.
 
-8. If you have copied the `arabica.latex` template into the directory of your default pandoc templates, then you can execute pandoc like this:
+4. If you have copied the `arabica.latex` template into the directory of your default pandoc templates, then you can execute pandoc like this:
 ```shell
 pandoc --data-dir=$HOME/path/to/your/projects/projectname/ -s -o ./output/projectname.pdf --filter pandoc-crossref --filter pandoc-citeproc --pdf-engine=xelatex --top-level-division=chapter --number-sections --template arabica ./core/*.md ./settings/*.yaml
 ```
 
-9. Please note, though: the *arabica boilerplate* is designed to be used with the given directory structure respectively file structure indicated in [BODYPLAN.md](./BODYPLAN.md).
+5. Please note, though: the *arabica boilerplate* is designed to be used with the given directory structure respectively file structure indicated in [BODYPLAN.md](./BODYPLAN.md).
 Of particular importance are the *metadata* and *settings* files: `./settings/00_01_metadata.yaml` `./settings/00_02_settings.yaml`.
 
-10. The boilerplate should work even if you change its inner structure but keep in mind to change all the paths and variables accordingly.
+6. The boilerplate should work even if you change its inner structure but keep in mind to change all the paths and variables accordingly.
 The `arabica.template` file may work as long as you provide some basic variables used in this template file.
+
+# Enjoy
+1. Go to `./output/` and enjoy your results.
 
 # Other
 1. To read out your current default template execute:
