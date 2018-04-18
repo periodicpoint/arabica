@@ -68,7 +68,8 @@ The `arabica.template` file may work as long as you provide some basic variables
 12. [Pandoc-crossref](https://github.com/lierdakil/pandoc-crossref)
 13. [TeXLive](https://www.tug.org/texlive/)
 14. [XeTeX](http://xetex.sourceforge.net/)
-15. [Zotero](https://www.zotero.org/)
-16. [zotero-citations](https://github.com/retorquere/zotero-citations)
-17. [zotero-picker](https://github.com/oztalha/zotero-picker/)
-18. [zotfile](https://github.com/jlegewie/zotfile).
+15. [YAML](http://yaml.org/)
+16. [Zotero](https://www.zotero.org/)
+17. [zotero-citations](https://github.com/retorquere/zotero-citations)
+18. [zotero-picker](https://github.com/oztalha/zotero-picker/)
+19. [zotfile](https://github.com/jlegewie/zotfile).
