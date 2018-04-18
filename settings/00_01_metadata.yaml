@@ -230,6 +230,10 @@ tools:
     - label: '\XeLaTeX'
     - url: 'http://xetex.sourceforge.net/'
   - stack:
+    - symbol: ~
+    - label: 'YAML'
+    - url: 'http://yaml.org/'
+  - stack:
     - symbol: '\includegraphics{./icons/zotero_icon.pdf}'
     - label: 'Zotero'
     - url: 'https://www.zotero.org/'
