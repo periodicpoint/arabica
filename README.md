@@ -1,5 +1,5 @@
 # arabica
-A sound and versatile [Pandoc](http://pandoc.org/) [LaTeX](https://www.latex-project.org/) boilerplate to produce academic books (in PDF) utilising solely modular [Markdown](https://daringfireball.net/projects/markdown/) files, featuring
+A sound and versatile [pandoc](http://pandoc.org/) [LaTeX](https://www.latex-project.org/) boilerplate to produce academic books (in PDF) utilising solely modular [Markdown](https://daringfireball.net/projects/markdown/) files, featuring
 [YAML](http://yaml.org/), [KOMA-Script](https://ctan.org/pkg/koma-script?lang=en) and [BibLaTeX](https://ctan.org/pkg/biblatex?lang=en).
 
 # Thanks
@@ -49,7 +49,7 @@ author: &author
 
 ## LaTeX template settings
 1. You can leave the defaults and you will be fine most of the time.
-2. If you want to change things, then the same rules as in [Metadata settings](##metadata-settings) apply.
+2. If you want to change things, then the same rules as in [Metadata settings](#metadata-settings) apply.
 3. Go to `./settings/00_02_settings.yaml` and
 4. Fill in the gaps, set your settings.
 5. Example:
@@ -65,8 +65,8 @@ custom_title_page: false
 
 ## Write (most importantly)
 1. Go to `./core/` and write you markdown files.
-2. Organise them as you like but keep in mind that pandoc will append them sequentially by alpha-numeric ordering of your file names.
-3. Good example:
+2. Organise them as you like but keep in mind that pandoc will append them sequentially, determined by the alpha-numeric ordering of your file names.
+3. A Good example:
 
 ```
 01_introduction.md
@@ -75,7 +75,7 @@ custom_title_page: false
 ```
 
 ## Run (pandoc)
-1. Execute pandoc with the follwing parameters:
+1. Execute pandoc with the following parameters:
 ```shell
 pandoc --data-dir=$HOME/path/to/your/projects/projectname/ -s -o ./output/projectname.pdf --filter pandoc-crossref --filter pandoc-citeproc --pdf-engine=xelatex --top-level-division=chapter --number-sections --template $HOME/path/to/your/projects/projectname/controls/arabica.latex ./core/*.md ./settings/*.yaml
 ```
