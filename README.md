@@ -8,8 +8,8 @@ For other projects like the one at hand please see [the list of user contributed
 
 # Main features
 1. **Simple** Your writing process is as simple as possible because you only need to write Markdown files and let the **strong defaults** of pandoc and LaTeX do their work. (see `./controls/` and `./settings/`)
-2. **Configurable** Your book projects are as configurable as possible because you can set your **metadata** and variables via YAML files and then reuse them if you want to. (see `./settings/`)
-3. **Modular** Your book projects are as modular as possible because of strict separation of contents and presentation (style).
+2. **Configurable** Your book projects are as configurable as possible because you can set your **metadata and variables** via YAML files and then reuse them if you want to. (see `./settings/`)
+3. **Modular** Your book projects are as modular as possible because of strict **separation of contents and presentation** (style).
 Your content live in separate directory (see `./core/`) where you can organise them intuitively.
 The *pandoc template* itself lives in `./controls/`.
 4. State-of-the-art technology stack and low tech debt at the same time.
