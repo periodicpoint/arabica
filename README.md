@@ -1,17 +1,22 @@
 # arabica
-A sound and versatile [Pandoc](http://pandoc.org/) [LaTeX](https://www.latex-project.org/) boilerplate to convert your [Markdown](https://daringfireball.net/projects/markdown/) files to PDF featuring [KOMA-Script](https://ctan.org/pkg/koma-script?lang=en).
-The *arabica* boilerplate is designed to *produce academic books* with focus on philosphy, humanities and mathematics.
-It is designed to be maximally configurable via [YAML](http://yaml.org/) files (see `./settings/`).
-Your contents live in a seperate directory (see `./core/`) where they can be organised in a modular fashion.
-The *template* itself lives in `./controls/`.
+A sound and versatile [Pandoc](http://pandoc.org/) [LaTeX](https://www.latex-project.org/) boilerplate to produce academic books (in PDF) utilising solely modular [Markdown](https://daringfireball.net/projects/markdown/) files, featuring
+[YAML](http://yaml.org/), [KOMA-Script](https://ctan.org/pkg/koma-script?lang=en) and [BibLaTeX](https://ctan.org/pkg/biblatex?lang=en).
 
 # Thanks
 The [*arabica boilerplate*](https://github.com/qualiacode/arabica) is inspired by the [pandoc latex template *eisvogel* by Wandmalfarbe](https://github.com/Wandmalfarbe/pandoc-latex-template) and was built with the help of the following sources and tools: [References and Credits](#references-and-credits).
-For other projects like the one at hand pleas see [the list of user contributed templates at the pandoc wiki](https://github.com/jgm/pandoc/wiki/User-contributed-templates).
+For other projects like the one at hand please see [the list of user contributed templates at the pandoc wiki](https://github.com/jgm/pandoc/wiki/User-contributed-templates).
+
+# Main features
+1. **Simple** Your writing process is as simple as possible because you only need to write Markdown files and let the **strong defaults** of pandoc and LaTeX do their work. (see `./controls/` and `./settings/`)
+2. **Configurable** Your book projects are as configurable as possible because you can set your **metadata** and variables via YAML files (see `./settings/`).
+3. **Modular** Your book projects are as modular as possible because of strict separation of contents and presentation (style).
+Your content live in separate directory (see `./core/`) where you can organise them intuitively.
+The *pandoc template* itself lives in `./controls/`.
+4. State-of-the-art technology stack and low tech debt at the same time.
 
 # Installation
 ## Preconditions
-1. Install [TeX Live](https://www.tug.org/texlive/) or any alternative LaTeX distribution.
+1. Install [TeX Live](https://www.tug.org/texlive/) or any alternative [LaTeX distribution](https://www.latex-project.org/get/).
 2. Install [pandoc](https://pandoc.org/).
 
 ## Install arabica boilerplate
@@ -45,7 +50,7 @@ Of particular importance are the *metadata* and *settings* files: `./settings/00
 The `arabica.template` file may work as long as you provide some basic variables used in this template file.
 
 # Other
-1. Read out your current default template execude:
+1. To read out your current default template execute:
 `pandoc -D latex > default.latex`.
 
 # References and Credits
