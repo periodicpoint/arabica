@@ -7,7 +7,7 @@ The [*arabica boilerplate*](https://github.com/qualiacode/arabica) is inspired b
 For other projects like the one at hand please see [the list of user contributed templates at the pandoc wiki](https://github.com/jgm/pandoc/wiki/User-contributed-templates).
 
 # Main features
-1. **Simple** Your writing process is as simple as possible because you only need to write Markdown files and let the **strong defaults** of pandoc and LaTeX do their work. (see `./controls/` and `./settings/`)
+1. **Simple** Your writing process is as simple as possible because you only need to write Markdown files and let the **strong defaults** of pandoc and LaTeX work for you. (see `./controls/` and `./settings/`)
 2. **Configurable** Your book projects are as configurable as possible because you can set your **metadata and variables** via YAML files and then reuse them if you want to. (see `./settings/`)
 3. **Modular** Your book projects are as modular as possible because of strict **separation of contents and presentation** (style).
 Your content live in separate directory (see `./core/`) where you can organise them intuitively.
@@ -34,7 +34,7 @@ The *pandoc template* itself lives in `./controls/`.
 ## Metadata settings
 1. Go to `./settings/00_01_metadata.yaml` and fill in your data e.g. author, title, year, …
 2. Put your values (data) in single quotes.
-3. If you want to leave a key undifined, then enter a tilde.
+3. If you want to leave a key undefined enter a tilde.
 3. Example:
 
 ```yaml
