@@ -5,7 +5,9 @@ A sound and versatile [pandoc](http://pandoc.org/) [LaTeX](https://www.latex-pro
 
 # Thanks
 The [*arabica boilerplate*](https://github.com/qualiacode/arabica) is inspired by the [pandoc latex template *eisvogel* by Wandmalfarbe](https://github.com/Wandmalfarbe/pandoc-latex-template) and was built with the help of the following sources and tools: [References and Credits](#references-and-credits).
-For other projects like the one at hand please see [the list of user contributed templates at the pandoc wiki](https://github.com/jgm/pandoc/wiki/User-contributed-templates).
+For other projects like the one at hand please see [the list of user contributed templates at the pandoc wiki](https://github.com/jgm/pandoc/wiki/User-contributed-templates)
+and
+[the list of pandoc boilerplates at the pandoc wiki](https://github.com/jgm/pandoc/wiki/Pandoc-Boilerplates).
 
 # Features
 1. **Simple** Your writing process is as simple as possible because you only need to write Markdown files and let the **strong defaults** of pandoc and LaTeX work for you. (see `./controls/` and `./settings/`)
