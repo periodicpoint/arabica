@@ -6,7 +6,7 @@ A sound and versatile [pandoc](http://pandoc.org/) [LaTeX](https://www.latex-pro
 The [*arabica boilerplate*](https://github.com/qualiacode/arabica) is inspired by the [pandoc latex template *eisvogel* by Wandmalfarbe](https://github.com/Wandmalfarbe/pandoc-latex-template) and was built with the help of the following sources and tools: [References and Credits](#references-and-credits).
 For other projects like the one at hand please see [the list of user contributed templates at the pandoc wiki](https://github.com/jgm/pandoc/wiki/User-contributed-templates).
 
-# Main features
+# Features
 1. **Simple** Your writing process is as simple as possible because you only need to write Markdown files and let the **strong defaults** of pandoc and LaTeX work for you. (see `./controls/` and `./settings/`)
 2. **Configurable** Your book projects are as configurable as possible because you can set your **metadata and variables** via YAML files and then reuse them if you want to. (see `./settings/`)
 3. **Modular** Your book projects are as modular as possible because of strict **separation of contents and presentation** (style).
@@ -19,13 +19,13 @@ The *pandoc template* itself lives in `./controls/`.
 1. Install [TeX Live](https://www.tug.org/texlive/) or any alternative [LaTeX distribution](https://www.latex-project.org/get/).
 2. Install [pandoc](https://pandoc.org/).
 
-## Clone (arabica)
+## Clone
 1. Go to your templates directory: `cd /path/to/your/templates/`.
 2. Clone (or download) this repository
 `git clone https://github.com/qualiacode/arabica.git`
 3. Done!
 
-# Use (arabica)
+# Use
 ## Copy and paste (and rename (and delete))
 1. Copy the entire *arabica boilerplate* located at your local templates and paste it to your directory of your projects:
 `cp /path/to/your/templates/arabica/* /path/to/your/projects/projectname/`
@@ -66,7 +66,7 @@ classoption:
 custom_title_page: false
 ```
 
-## Write (most importantly)
+## Write
 1. Go to `./core/` and write you markdown files.
 2. Organise them as you like but keep in mind that pandoc will append them sequentially, determined by the alpha-numeric ordering of your file names.
 3. A Good example:
@@ -77,7 +77,7 @@ custom_title_page: false
 03_conclusion.md
 ```
 
-## Run (pandoc)
+## Run
 1. Execute pandoc with the following options:
 
 ```shell
