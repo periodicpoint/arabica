@@ -76,16 +76,41 @@ custom_title_page: false
 
 ## Run (pandoc)
 1. Execute pandoc with the following parameters:
+
 ```shell
-pandoc --data-dir=$HOME/path/to/your/projects/projectname/ -s -o ./output/projectname.pdf --filter pandoc-crossref --filter pandoc-citeproc --pdf-engine=xelatex --top-level-division=chapter --number-sections --template $HOME/path/to/your/projects/projectname/controls/arabica.latex ./core/*.md ./settings/*.yaml
+pandoc                                                                      \
+  -s                                                                        \
+  -o ./output/projectname.pdf                                               \
+  --data-dir=$HOME/path/to/your/projects/projectname/                       \
+  --filter pandoc-crossref                                                  \
+  --filter pandoc-citeproc                                                  \
+  --pdf-engine=xelatex                                                      \
+  --top-level-division=chapter                                              \
+  --number-sections                                                         \
+  --template $HOME/path/to/your/projects/projectname/controls/arabica.latex \ ./core/*.md                                                               \
+  ./settings/*.yaml                                                         \
+  ./metadata/*.yaml
 ```
+
 2. Done!
 
 3. Alternatively you can omit the long path in the `--template` option by copying the `arabica.latex` template located at `./controls/arabica.latex` to the default directory of your pandoc templates located at `~/.pandoc/templates/`.
 
 4. If you have copied the `arabica.latex` template into the directory of your default pandoc templates, then you can execute pandoc like this:
 ```shell
-pandoc --data-dir=$HOME/path/to/your/projects/projectname/ -s -o ./output/projectname.pdf --filter pandoc-crossref --filter pandoc-citeproc --pdf-engine=xelatex --top-level-division=chapter --number-sections --template arabica ./core/*.md ./settings/*.yaml
+pandoc \
+  --data-dir=$HOME/path/to/your/projects/projectname/ \
+  -s \
+  -o ./output/projectname.pdf \
+  --filter pandoc-crossref \
+  --filter pandoc-citeproc \
+  --pdf-engine=xelatex \
+  --top-level-division=chapter \
+  --number-sections \
+  --template arabica \
+  ./core/*.md \
+  ./settings/*.yaml \
+  ./metadata/*.yaml
 ```
 
 5. Please note, though: the *arabica boilerplate* is designed to be used with the given directory structure respectively file structure indicated in [BODYPLAN.md](./BODYPLAN.md).
