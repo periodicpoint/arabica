@@ -132,6 +132,11 @@ The `arabica.template` file may work as long as you provide some basic variables
 1. To read out your current default template execute:
 `pandoc -D latex > default.latex`.
 
+# License
+Creative Commons Attribution-ShareAlike 4.0 International (CC-BY-SA 4.0)
+2018 Martin Maga [https://creativecommons.org/licenses/by-sa/4.0/](https://creativecommons.org/licenses/by-sa/4.0/)
+Go to [./LICENSE.md](./LICENSE.md) for more.
+
 # References and Credits
 1. Plot graphics: [Gnuplot](http://gnuplot.sourceforge.net/demo_5.0/hidden2.html)
 2. Blind text: [Jasper Van der Jeugt lorem-markdownum](https://github.com/jaspervdj/lorem-markdownum)
