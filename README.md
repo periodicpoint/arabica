@@ -87,7 +87,8 @@ pandoc                                                                      \
   --pdf-engine=xelatex                                                      \
   --top-level-division=chapter                                              \
   --number-sections                                                         \
-  --template $HOME/path/to/your/projects/projectname/controls/arabica.latex \ ./core/*.md                                                               \
+  --template $HOME/path/to/your/projects/projectname/controls/arabica.latex \
+  ./core/*.md                                                               \
   ./settings/*.yaml                                                         \
   ./metadata/*.yaml
 ```
