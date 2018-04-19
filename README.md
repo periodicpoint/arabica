@@ -1,6 +1,7 @@
 # arabica
 A sound and versatile [pandoc](http://pandoc.org/) [LaTeX](https://www.latex-project.org/) boilerplate to produce academic books (in PDF) utilising solely modular [Markdown](https://daringfireball.net/projects/markdown/) files, featuring
-[YAML](http://yaml.org/), [KOMA-Script](https://ctan.org/pkg/koma-script?lang=en) and [BibLaTeX](https://ctan.org/pkg/biblatex?lang=en).
+[YAML](http://yaml.org/), [KOMA-Script](https://ctan.org/pkg/koma-script?lang=en), [BibLaTeX](https://ctan.org/pkg/biblatex?lang=en) and
+[CSL](http://citationstyles.org/).
 
 # Thanks
 The [*arabica boilerplate*](https://github.com/qualiacode/arabica) is inspired by the [pandoc latex template *eisvogel* by Wandmalfarbe](https://github.com/Wandmalfarbe/pandoc-latex-template) and was built with the help of the following sources and tools: [References and Credits](#references-and-credits).
