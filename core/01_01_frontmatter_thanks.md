@@ -7,6 +7,7 @@ The [pandoc latex boilerplate *arabica*](https://github.com/qualiacode/arabica) 
 3. [@StackExchange2018]
 
 and the following tools
+
 1. [Atom editor](https://atom.io/)
 2. [Better Bib(La)TeX for Zotero](https://retorque.re/zotero-better-bibtex/)
 3. [git](https://git-scm.com/)
