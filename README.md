@@ -23,7 +23,7 @@ Default title page | Default info page | Default example page
 [![Default title page ](/examples/default_a/output/titlepage.png)](/examples/default_a/output/arabica.pdf) | [![Default info page](/examples/default_a/output/infopage.png)](/examples/default_a/output/arabica.pdf) | [![Default example page](/examples/default_a/output/examplepage.png)](/examples/default_a/output/arabica.pdf)
 
 # Examples
-Go to [`./examples/`](/examples/) to view a list of complete example book projects.
+Go to `./examples/` [to view a list of complete example book projects](/examples/).
 
 # Install
 ## Preconditions
