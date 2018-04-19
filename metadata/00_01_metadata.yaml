@@ -71,10 +71,10 @@ default:
     label: 'Another abstract'
   person_id:
     label: 'Open Researcher and Contributor ID (ORiCD)'
-    symbol: &orcid_symbol '\scalerel*{\includegraphics{./icons/orcid_icon.pdf}}{O}' #'\aiOrcid'
+    symbol: &orcid_symbol '\scalerel*{\includegraphics{./icons/orcid_icon.pdf}}{O}'
   object_id:
     label: 'Digital Object Identifier (DOI)'
-    symbol: &doi_symbol '\scalerel*{\includegraphics{./icons/doi_icon.pdf}}{O}' #'\aiDoi'
+    symbol: &doi_symbol '\scalerel*{\includegraphics{./icons/doi_icon.pdf}}{O}'
   advisor:
     label: &advisor_label 'Supervised'
   submission:
@@ -99,7 +99,8 @@ default:
   extratitle_line:
 
 # if there are more than 10 creators, authors, contributors, participants, ...
-# then use the collective key value pairs.
+# then use the following collective key value pairs.
+# default: false
 display_collective: false
 collective:
   - label: 'Collective'
