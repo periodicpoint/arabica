@@ -542,48 +542,33 @@ $if(extratitle)$
     %------------------------------------------define the the extratitle page A
     \extratitle{%
       $if(extratitle)$
-        $if(display_collective)$
-          $if(collective)$
-            \begin{flushright}
-              \begin{large}
-                $for(collective)$
-                  $if(collective.display_name)$
-                    \textsc{$collective.display_name$}
-                    \vspace{0.05\textheight}
-                  $endif$
-                $endfor$
-              \end{large}
-            \end{flushright}
-          $endif$
-        $else$
-          $if(creators)$
-            \begin{flushright}
-              \begin{large}
-                $for(creators)$
-                  $if(creators.creator)$
-                    $for(creators.creator)$
-                      $if(creators.creator.firstname)$
-                        \textsc{$creators.creator.firstname$}
-                      $endif$
-                      $if(creators.creator.lastname)$
-                        \textsc{$creators.creator.lastname$}
-                      $endif$
-                    $endfor$
-                  $endif$$sep$,
-                $endfor$
-              \end{large}
-            \end{flushright}
-            \vspace{0.05\textheight}
-          $else$
-            $if(author)$
-              \begin{flushright}
-                \begin{large}
-                  $for(author)$
-                    \textsc{$author$}$sep$,
+        $if(creators)$
+          \begin{flushright}
+            \begin{large}
+              $for(creators)$
+                $if(creators.creator)$
+                  $for(creators.creator)$
+                    $if(creators.creator.firstname)$
+                      \textsc{$creators.creator.firstname$}
+                    $endif$
+                    $if(creators.creator.lastname)$
+                      \textsc{$creators.creator.lastname$}
+                    $endif$
                   $endfor$
-                \end{large}
-              \end{flushright}
-            $endif$
+                $endif$$sep$,
+              $endfor$
+            \end{large}
+          \end{flushright}
+          \vspace{0.05\textheight}
+        $else$
+          $if(author)$
+            \begin{flushright}
+              \begin{large}
+                $for(author)$
+                  \textsc{$author$}$sep$,
+                $endfor$
+              \end{large}
+            \end{flushright}
           $endif$
         $endif$
       $endif$
@@ -788,49 +773,34 @@ $endif$
 }
 %--------------------------------------------------------define the author line
 \author{%
-  $if(display_collective)$
-    $if(collective)$
-      \begin{flushright}
-        \begin{large}
-          $for(collective)$
-            $if(collective.display_name)$
-              \textsc{$collective.display_name$}
-              \vspace{0.05\textheight}
-            $endif$
-          $endfor$
-        \end{large}
-      \end{flushright
-    $endif$
-  $else$
-    $if(creators)$
-      $for(creators)$
-        $if(creators.creator)$
-          $for(creators.creator)$
-            $if(creators.creator.firstname)$
-              \textsc{$creators.creator.firstname$}
-            $endif$
-            $if(creators.creator.lastname)$
-              \textsc{$creators.creator.lastname$}
-            $endif$
-            $if(creators.creator.contact)$
-                \\ \href{mailto:$creators.creator.contact$}{$creators.creator.contact$}
-            $endif$
-          $endfor$
-        $endif$$sep$\and%
-      $endfor$
-      \\
-    $else$
-      \begin{flushright}
-        \begin{large}
-          $if(author)$
-            $for(author)$
-              \textsc{$author$}$sep$\and
-            $endfor$
+  $if(creators)$
+    $for(creators)$
+      $if(creators.creator)$
+        $for(creators.creator)$
+          $if(creators.creator.firstname)$
+            \textsc{$creators.creator.firstname$}
           $endif$
-        \end{large}
-      \end{flushright}
-    $endif$
-  $endif$%
+          $if(creators.creator.lastname)$
+            \textsc{$creators.creator.lastname$}
+          $endif$
+          $if(creators.creator.contact)$
+              \\ \href{mailto:$creators.creator.contact$}{$creators.creator.contact$}
+          $endif$
+        $endfor$
+      $endif$$sep$\and%
+    $endfor$
+    \\
+  $else$
+    \begin{flushright}
+      \begin{large}
+        $if(author)$
+          $for(author)$
+            \textsc{$author$}$sep$\and
+          $endfor$
+        $endif$
+      \end{large}
+    \end{flushright}
+  $endif$
 }
 %----------------------------------------------------------define the date line
 \date{%
@@ -882,47 +852,27 @@ $endif$
   $if(default.person_id.label)$
     $default.person_id.label$\\
   $endif$
-  $if(display_collective)$
-    $if(collective)$
-      $for(collective)$
-        $if(collective.label)$
-          $collective.label$
-        $endif$
-        $if(collective.name)$
-          \textsc{$collective.name$}\\
-        $endif$
-        $if(collective.statement)$
-          $collective.statement$\\
-        $endif$
-        $if(collective.refer_to)$
-          $collective.refer_to$\\
-        $endif$
-      $endfor$
-      \\
-    $endif$
-  $else$
-    $if(creators)$
-      $for(creators)$
-        $if(creators.creator)$
-          $for(creators.creator)$
-            $if(creators.creator.firstname)$
-              \textsc{$creators.creator.firstname$}
+  $if(creators)$
+    $for(creators)$
+      $if(creators.creator)$
+        $for(creators.creator)$
+          $if(creators.creator.firstname)$
+            \textsc{$creators.creator.firstname$}
+          $endif$
+          $if(creators.creator.lastname)$
+            \textsc{$creators.creator.lastname$}
+          $endif$
+          $if(creators.creator.orcid)$
+            $if(default.person_id.symbol)$
+              $default.person_id.symbol$
             $endif$
-            $if(creators.creator.lastname)$
-              \textsc{$creators.creator.lastname$}
-            $endif$
-            $if(creators.creator.orcid)$
-              $if(default.person_id.symbol)$
-                $default.person_id.symbol$
-              $endif$
-              \url{$creators.creator.orcid$}
-            $endif$
-          $endfor$
-        $endif$$sep$,
-      $endfor$
-      \\
-      \\
-    $endif$
+            \url{$creators.creator.orcid$}
+          $endif$
+        $endfor$
+      $endif$$sep$,
+    $endfor$
+    \\
+    \\
   $endif$
   $if(default.license)$
     $if(default.license.label)$

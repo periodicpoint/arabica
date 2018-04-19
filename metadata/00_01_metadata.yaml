@@ -98,32 +98,6 @@ default:
     second_examinator: &second_examinator '2. Examinator'
   extratitle_line:
 
-# if there are more than 10 creators, authors, contributors, participants, ...
-# then use the following collective key value pairs.
-# default: false
-display_collective: false
-collective:
-  - label: 'Collective'
-  - name: 'TESTING'
-  - display_name: 'Collective'
-  - statement: 'This publication was authored by a team of authors'
-  - refer_to: 'See the list of all authors'
-  - orcid: ~
-  - web: ~
-  - email: ~
-  - role: ~
-  - affiliation:
-    - ~
-    - ~
-    - ~
-  - address:
-    - ~
-    - ~
-    - ~
-  - id: ~
-  - contact: ~
-  - note: ~
-
 # (co-)creators and (co-)authors
 creators:
   - creator:
