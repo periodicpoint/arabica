@@ -65,8 +65,8 @@ title_page_b: false
 # give path here if you want to include a logo or graphic in your title page(s)
 # example: './titlepage/dummygraphic.pdf'
 titlepage:
-  graphic: #'./titlepage/dummygraphic.pdf'
-  logo: #'./titlepage/dummylogo.pdf'
+  graphic: #'./graphics/dummygraphic.pdf'
+  logo: #'./graphics/dummylogo.pdf'
 
 # activate / deactivate display of your abtsract text
 # the classoption "abstract" only specifies if the (language dependent) heading
