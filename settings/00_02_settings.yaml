@@ -199,6 +199,8 @@ lplfitch: ~
 
 # for advanced math typesetting (loads all default math pkg)
 # if you set this option all the folowing packages will be loaded automatically
+# except for: package "amssymb" and "amsmath" because they are loaded
+# automatically.
 # mathematical tools to use with amsmath
 # \usepackage{mathtools}
 # ams mathematical facilities for LaTeX
@@ -211,7 +213,6 @@ lplfitch: ~
 #  \usepackage{amsthm}
 # dirac bra-ket and set notations
 #  \usepackage{braket}
-# for unicode (utf8) math typesettings support for XeTeX
 # for numbered cases (mappings) environment
 #  \usepackage{cases}
 # for proof trees in the style of the sequent calculus
@@ -237,8 +238,8 @@ graphics: true
 
 # to scale graphics relative to reference object (needs pkg "graphicx")
 # usage: \scalerel*{\includegraphics{inlinegraphic.pdf}}{O}
-# default: ~
-scalerel: ~
+# default: true
+scalerel: true
 
 # to allow text to flow around graphics
 # default: ~

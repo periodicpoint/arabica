@@ -54,11 +54,11 @@ $if(math)$
   %--------------------------------------mathematical tools to use with amsmath
   \usepackage{mathtools}
   %---------------------------------------ams mathematical facilities for LaTeX
-  \usepackage{amsmath%----------------possibly loaded loaded somewhere else too
+  %\usepackage{amsmath%----------------possibly loaded loaded somewhere else too
   %----------------------------TeX fonts from the american mathematical society
   \usepackage{amsfonts}
   %---------------------------------------------additional mathematical symbols
-  \usepackage{amssymb}%---------------possibly loaded loaded somewhere else too
+  %\usepackage{amssymb}%---------------possibly loaded loaded somewhere else too
   %-------------------------------typesetting of custom theorems (in ams style)
   \usepackage{amsthm}
   %---------------------------------------------dirac bra-ket and set notations
