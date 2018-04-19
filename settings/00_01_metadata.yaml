@@ -56,10 +56,7 @@ version: &version
 
 publishers: ~
 
-#output: arabica
-#    variant: markdown+grid_tables
-
-# default labels and symbols4. [KOMA-Script](https://ctan.org/pkg/koma-script?lang=en)
+# default names, labels and symbols
 default:
   version:
     label: 'Version (Timestamp + Hash)'
@@ -101,7 +98,7 @@ default:
     second_examinator: &second_examinator '2. Examinator'
   extratitle_line:
 
-# if there are more than 5 creators, authors, contributors, participants, ...
+# if there are more than 10 creators, authors, contributors, participants, ...
 # then use the collective key value pairs.
 display_collective: false
 collective:
@@ -126,7 +123,7 @@ collective:
   - contact: ~
   - note: ~
 
-# (co-)creators, (co-)authors, advisors, reviewers, participants
+# (co-)creators and (co-)authors
 creators:
   - creator:
     - title: 'Prof.'
@@ -146,6 +143,7 @@ creators:
     - contact: 'example@domain.tld'
     - note: ~
 
+# advisors, reviewers, examinators, participants
 advisors:
   - advisor:
     - title: 'Mr.'
@@ -182,6 +180,7 @@ advisors:
     - contact: ~
     - note: ~
 
+# tech stack
 tools:
   - description: >
       This publication was written using free software only. The following tools were especially helpful:
@@ -250,7 +249,7 @@ tools:
     - label: 'zotfile'
     - url: 'https://github.com/jlegewie/zotfile/'
 
-# to specify metadata stored pdf
+# to specify metadata stored in pdf
 title-meta: *title
 auto-meta: *author
 date-meta: *date
