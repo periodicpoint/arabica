@@ -17,6 +17,15 @@ Your content live in separate directory (see `./core/`) where you can organise t
 The *pandoc template* itself lives in `./controls/`.
 4. State-of-the-art technology stack and low tech debt at the same time.
 
+# Preview
+
+Default title page | Default info page | Default example page
+:-----------------:|:-----------------:|:--------------------:
+[![Default title page ](examples/default_a_titlepage.png)](examples/default_a/output/arabica.pdf) | [![Default info page](examples/default_a_info_page.png)](examples/default_a/output/arabica.pdf) |  [![Default example page](examples/default_a_examplepage.png)](examples/default_a/output/arabica.pdf)
+
+# Examples
+Go to `./examples/` to view a list of complete example book projects.
+
 # Install
 ## Preconditions
 1. Install [TeX Live](https://www.tug.org/texlive/) or any alternative [LaTeX distribution](https://www.latex-project.org/get/).
