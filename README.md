@@ -67,6 +67,10 @@ classoption:
 custom_title_page: false
 ```
 
+6. Select your favourite **citation style** by saving it to
+`./csl/` and refering to it via the `./settings/settings.yaml` e.g.
+`csl: './csl/chicago-author-date-de.csl'`.
+
 ## Write
 1. Go to `./core/` and write you markdown files.
 2. Organise them as you like but keep in mind that pandoc will append them sequentially, determined by the alpha-numeric ordering of your file names.
