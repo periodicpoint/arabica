@@ -27,9 +27,12 @@ The *pandoc template* itself lives in `./controls/`.
 
 # Usage
 ## Copy and paste (and rename)
-1. Copy the entire *arabica boilerplate* located at your local templates to your directory of your projects: `cp /path/to/your/templates/arabica/* /path/to/your/projects/projectname/`
-2. Go to your project directory: `cd /path/to/your/projects/projectname/`
-3. Delete unwanted files like `./examples`: `rm -vrf examples/*`
+1. Copy the entire *arabica boilerplate* located at your local templates and paste it to your directory of your projects:
+`cp /path/to/your/templates/arabica/* /path/to/your/projects/projectname/`
+2. Go to your project directory:
+`cd /path/to/your/projects/projectname/`
+3. Delete unwanted files like `./examples`:
+`rm -vrf examples/*`
 
 ## Metadata settings
 1. Go to `./settings/00_01_metadata.yaml` and fill in your data e.g. author, title, year, …
@@ -75,7 +78,29 @@ custom_title_page: false
 ```
 
 ## Run (pandoc)
-1. Execute pandoc with the following parameters:
+1. Execute pandoc with the following options:
+
+```shell
+pandoc                                                                      \
+  -s                                                                        \
+  -o ./output/projectname.pdf                                               \
+  --data-dir=$HOME/path/to/your/projects/projectname/                       \
+  --filter pandoc-crossref                                                  \
+  --filter pandoc-citeproc                                                  \
+  --pdf-engine=xelatex                                                      \
+  --top-level-division=chapter                                              \
+  --number-sections                                                         \
+  --template arabica.latex                                                  \
+  ./core/*.md                                                               \
+  ./settings/*.yaml                                                         \
+  ./metadata/*.yaml
+```
+
+2. Done!
+
+3. Alternatively you can omit the long path in the `--template` option by copying the `arabica.latex` template located at `./controls/arabica.latex` to the default directory of your pandoc templates located at `~/.pandoc/templates/`.
+
+4. If you have copied the `arabica.latex` template into the directory of your default pandoc templates, then you can execute pandoc like this:
 
 ```shell
 pandoc                                                                      \
@@ -90,27 +115,6 @@ pandoc                                                                      \
   --template $HOME/path/to/your/projects/projectname/controls/arabica.latex \
   ./core/*.md                                                               \
   ./settings/*.yaml                                                         \
-  ./metadata/*.yaml
-```
-
-2. Done!
-
-3. Alternatively you can omit the long path in the `--template` option by copying the `arabica.latex` template located at `./controls/arabica.latex` to the default directory of your pandoc templates located at `~/.pandoc/templates/`.
-
-4. If you have copied the `arabica.latex` template into the directory of your default pandoc templates, then you can execute pandoc like this:
-```shell
-pandoc \
-  --data-dir=$HOME/path/to/your/projects/projectname/ \
-  -s \
-  -o ./output/projectname.pdf \
-  --filter pandoc-crossref \
-  --filter pandoc-citeproc \
-  --pdf-engine=xelatex \
-  --top-level-division=chapter \
-  --number-sections \
-  --template arabica \
-  ./core/*.md \
-  ./settings/*.yaml \
   ./metadata/*.yaml
 ```
 
