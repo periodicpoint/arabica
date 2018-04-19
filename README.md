@@ -90,7 +90,7 @@ pandoc                                                                      \
   --pdf-engine=xelatex                                                      \
   --top-level-division=chapter                                              \
   --number-sections                                                         \
-  --template arabica.latex                                                  \
+  --template $HOME/path/to/your/projects/projectname/controls/arabica.latex \
   ./core/*.md                                                               \
   ./settings/*.yaml                                                         \
   ./metadata/*.yaml
@@ -102,6 +102,7 @@ pandoc                                                                      \
 
 4. If you have copied the `arabica.latex` template into the directory of your default pandoc templates, then you can execute pandoc like this:
 
+
 ```shell
 pandoc                                                                      \
   -s                                                                        \
@@ -112,7 +113,7 @@ pandoc                                                                      \
   --pdf-engine=xelatex                                                      \
   --top-level-division=chapter                                              \
   --number-sections                                                         \
-  --template $HOME/path/to/your/projects/projectname/controls/arabica.latex \
+  --template arabica.latex                                                  \
   ./core/*.md                                                               \
   ./settings/*.yaml                                                         \
   ./metadata/*.yaml
