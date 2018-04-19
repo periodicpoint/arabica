@@ -1,0 +1,272 @@
+---
+doi: &doi '1234567890'
+
+title: &title 'Short title'
+
+subtitle: &subtitle 'Long pretentious title'
+
+author: &author
+  - 'Jane Roe'
+  - 'John Doe'
+  - 'Alice Eve'
+
+web: ~
+
+email: &email 'example@domain.tld'
+
+subject: &subject 'Subject'
+
+year: &year '2018'
+
+date: &date '\today'
+
+place: &place 'World'
+
+aim:
+  normal: 'To proof the existence of notihng.'
+  formal: 'To get the marster’s degree'
+
+abstract: &abstract >
+  'Lorem markdownum modis flebant lintea, prae ullis cadente, dixit sed. Lenimen nam vagatur ante erat quamque carminibus rogus admovet casa, vultus quae nec, partem? Cetera oculisque sustinet modulatur patefecit recens. Sortes nec, aurea quod, modo mihi lumina prima dicens erat pectus fortunam iugulatus morbi Heliadum domitamque fecistis. De licet interserit quicquid Ocyroen sola Hector evicere suos tortoque tum est humum conditur. Palmis cerno Paris suam perdite, vestras nervi incomitata est vehebat auras regina mentem aesculus Baucisque memor, is. Simul amnis positi; nata hiemes, retia poscitur lactis nec vobis alimenta. Ille vidi clamor non emicuit opus dubitare ferali reseratis ut faber tamen erubuit; movensque.'
+
+another_abstract: &another_abstract >
+
+tags: &tags ['turing-machine', 'artificial', 'computational', 'cognition', 'artificial', 'consciousness', 'proof', 'integrated information', 'algorithm', 'meta theory', 'analysis', 'compression', 'kolmogorov', 'complexity', 'emergence', 'computability', 'producibility']
+
+keywords: *tags
+
+institute: &institute
+  - 'Faculty 9'
+  - 'Advanced rocket science'
+  - 'Some Street 314'
+  - 'G-12345 City'
+
+dedication: 'For my family'
+
+license:
+  short: '(CC-BY-SA 4.0)'
+  long: 'Creative Commons Attribution-ShareAlike 4.0 International'
+  year: '2018'
+  holder: *author
+  email: *email
+  url: 'https://creativecommons.org/licenses/by-sa/4.0/'
+
+version: &version
+  timestamp: '2018-04-02t20:13'
+  hash: 'd670460b4b4aece5915caf5c68d12f560a9fe3e4'
+  link: 'https://github.com/'
+
+publishers: ~
+
+# default names, labels and symbols
+default:
+  version:
+    label: 'Version (Timestamp + Hash)'
+  publication:
+    label: 'Publikation'
+  license:
+    label: &license_label 'Lizenz'
+    symbol: &creativecommons_symbol '\ccbysa'
+  abstract:
+    label: 'Summary'
+  another_abstract:
+    label: 'Another abstract'
+  person_id:
+    label: 'Open Researcher and Contributor ID (ORiCD)'
+    symbol: &orcid_symbol '\scalerel*{\includegraphics{./icons/orcid_icon.pdf}}{O}'
+  object_id:
+    label: 'Digital Object Identifier (DOI)'
+    symbol: &doi_symbol '\scalerel*{\includegraphics{./icons/doi_icon.pdf}}{O}'
+  advisor:
+    label: &advisor_label 'Supervised'
+  submission:
+    label: &submission_label 'Submitted on'
+    date: &submission_date '\today'
+  email:
+    label: &email_label 'E-Mail'
+  web:
+    label: &web_label 'Web'
+  thesis:
+    label: 'Abchlussarbeit'
+    student_number_label: &student_number_label 'matriculation number'
+  role:
+    creator: &creator 'Author'
+    co-creator: &co-creator 'Co-Author'
+    contributor: &contributor 'Contributor'
+    advisor: &advisor 'Advisor'
+    reviewer: &reviewer 'Reviewer'
+    examinator: &examinator 'Examinator'
+    first_examinator: &first_examinator '1. Examinator'
+    second_examinator: &second_examinator '2. Examinator'
+  extratitle_line:
+
+# (co-)creators and (co-)authors
+creators:
+  - creator:
+    - title: 'Mrs.'
+    - firstname: 'Jane'
+    - lastname: 'Roe'
+    - orcid: 'https://orcid.org/0000-0012-1234-1234'
+    - web: ~
+    - email: 'example@domain.tld'
+    - role: *creator
+    - affiliation:
+      <<: *institute
+    - address:
+      - 'Jane Roe'
+      - 'Long Street 1'
+      - 'G-12345 City'
+    - id: '123456789'
+    - contact: 'example@domain.tld'
+    - note: ~
+  - creator:
+    - title: 'Mr.'
+    - firstname: 'John'
+    - lastname: 'Doe'
+    - orcid: 'https://orcid.org/0000-0012-1234-1234'
+    - web: ~
+    - email: 'example@domain.tld'
+    - role: *creator
+    - affiliation:
+      <<: *institute
+    - address:
+      - 'John Doe'
+      - 'Long Street 2'
+      - 'G-12345 City'
+    - id: '123456789'
+    - contact: 'example@domain2.tld'
+    - note: ~
+  - creator:
+    - title: 'Mrs.'
+    - firstname: 'Alice'
+    - lastname: 'Eve'
+    - orcid: 'https://orcid.org/0000-0012-1234-1234'
+    - web: ~
+    - email: 'example@domain3.tld'
+    - role: *creator
+    - affiliation:
+      <<: *institute
+    - address:
+      - 'Alice Eve'
+      - 'Long Street 3'
+      - 'G-12345 City'
+    - id: '123456789'
+    - contact: 'example@domain3.tld'
+    - note: ~
+
+# advisors, reviewers, examinators, participants
+advisors:
+  - advisor:
+    - title: 'Mr.'
+    - firstname: 'John'
+    - lastname: 'Doe'
+    - orcid: ~
+    - web: ~
+    - email: ~
+    - role: *first_examinator
+    - affiliation:
+      <<: *institute
+    - address:
+      - ~
+      - ~
+      - ~
+    - id: ~
+    - contact: ~
+    - note: ~
+  - advisor:
+    - title: 'Mrs.'
+    - firstname: 'Alice'
+    - lastname: 'Signal'
+    - orcid: ~
+    - web: ~
+    - email: ~
+    - role: *first_examinator
+    - affiliation:
+      <<: *institute
+    - address:
+      - ~
+      - ~
+      - ~
+    - id: ~
+    - contact: ~
+    - note: ~
+
+# tech stack
+tools:
+  - description: >
+      This publication was written using free software only. The following tools were especially helpful:
+  - stack:
+    - symbol: '\includegraphics{./icons/atom_editor_icon.pdf}'
+    - label: 'Atom Editor'
+    - url: 'https://atom.io/'
+  - stack:
+    - symbol: ~
+    - label: 'Better Bib(La)TeX for Zotero'
+    - url: 'https://retorque.re/zotero-better-bibtex/'
+  - stack:
+    - symbol: '\includegraphics{./icons/csl_icon.pdf}'
+    - label: 'CSL'
+    - url: 'http://citationstyles.org/'
+  - stack:
+    - symbol: '\includegraphics{./icons/git_icon.pdf}'
+    - label: 'git'
+    - url: 'https://git-scm.com/'
+  - stack:
+    - symbol: ~
+    - label: 'KOMA-Script'
+    - url: 'https://ctan.org/pkg/koma-script?lang=en/'
+  - stack:
+    - symbol: ~
+    - label: '\LaTeX'
+    - url: 'https://www.latex-project.org/'
+  - stack:
+    - symbol: '\includegraphics{./icons/markdown_icon.pdf}'
+    - label: 'Markdown'
+    - url: 'https://daringfireball.net/projects/markdown/'
+  - stack:
+    - symbol:
+    - label: 'Pandoc'
+    - url: 'http://pandoc.org/'
+  - stack:
+    - symbol: ~
+    - label: 'pandoc-citeproc'
+    - url: 'https://github.com/jgm/pandoc-citeproc/'
+  - stack:
+    - symbol: ~
+    - label: 'pandoc-crossref'
+    - url: 'https://github.com/lierdakil/pandoc-crossref/'
+  - stack:
+    - symbol: ~
+    - label: '\TeX Live'
+    - url: 'https://www.tug.org/texlive/'
+  - stack:
+    - symbol: ~
+    - label: '\XeLaTeX'
+    - url: 'http://xetex.sourceforge.net/'
+  - stack:
+    - symbol: ~
+    - label: 'YAML'
+    - url: 'http://yaml.org/'
+  - stack:
+    - symbol: '\includegraphics{./icons/zotero_icon.pdf}'
+    - label: 'Zotero'
+    - url: 'https://www.zotero.org/'
+  - stack:
+    - symbol: ~
+    - label: 'zotero-citations'
+    - url: 'https://github.com/retorquere/zotero-citations/'
+  - stack:
+    - symbol: ~
+    - label: 'zotero-picker'
+    - url: 'https://github.com/oztalha/zotero-picker/'
+  - stack:
+    - symbol: ~
+    - label: 'zotfile'
+    - url: 'https://github.com/jlegewie/zotfile/'
+
+# to specify metadata stored in pdf
+title-meta: *title
+auto-meta: *author
+date-meta: *date
+doi-meta: *doi
+...
