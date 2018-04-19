@@ -120,7 +120,7 @@ pandoc                                                \
 ```
 
 5. Please note, though: the *arabica boilerplate* is designed to be used with the given directory structure respectively file structure indicated in [BODYPLAN.md](./BODYPLAN.md).
-Of particular importance are the *metadata* and *settings* files: `./settings/00_01_metadata.yaml` `./settings/00_02_settings.yaml`.
+Of particular importance are the *metadata* and *settings* files: `./metadata/00_01_metadata.yaml` `./settings/00_02_settings.yaml`.
 
 6. The boilerplate should work even if you change its inner structure but keep in mind to change all the paths and variables accordingly.
 The `arabica.template` file may work as long as you provide some basic variables used in this template file.
