@@ -21,7 +21,7 @@ The *pandoc template* itself lives in `./controls/`.
 
 Default title page | Default info page | Default example page
 :-----------------:|:-----------------:|:--------------------:
-[![Default title page ](./examples/default_a_titlepage.png)](./examples/default_a/output/arabica.pdf) | [![Default info page](./examples/default_a_info_page.png)](./examples/default_a/output/arabica.pdf) |  [![Default example page](./examples/default_a_examplepage.png)](./examples/default_a/output/arabica.pdf)
+[![Default title page ](./examples/default_a/titlepage.png)](./examples/default_a/output/arabica.pdf) | [![Default info page](./examples/default_a/infopage.png)](./examples/default_a/output/arabica.pdf) |  [![Default example page](./examples/default_a/examplepage.png)](./examples/default_a/output/arabica.pdf)
 
 # Examples
 Go to `./examples/` to view a list of complete example book projects.
