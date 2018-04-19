@@ -194,6 +194,10 @@ tools:
     - label: 'Better Bib(La)TeX for Zotero'
     - url: 'https://retorque.re/zotero-better-bibtex/'
   - stack:
+    - symbol: '\includegraphics{./icons/csl_icon.pdf}'
+    - label: 'CSL'
+    - url: 'http://citationstyles.org/'
+  - stack:
     - symbol: '\includegraphics{./icons/git_icon.pdf}'
     - label: 'git'
     - url: 'https://git-scm.com/'
