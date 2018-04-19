@@ -569,7 +569,7 @@ $if(extratitle)$
                         \textsc{$creators.creator.lastname$}
                       $endif$
                     $endfor$
-                  $endif$
+                  $endif$$sep$,
                 $endfor$
               \end{large}
             \end{flushright}
