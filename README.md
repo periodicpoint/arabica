@@ -104,18 +104,18 @@ pandoc                                                                      \
 
 
 ```shell
-pandoc                                                                      \
-  -s                                                                        \
-  -o ./output/projectname.pdf                                               \
-  --data-dir=$HOME/path/to/your/projects/projectname/                       \
-  --filter pandoc-crossref                                                  \
-  --filter pandoc-citeproc                                                  \
-  --pdf-engine=xelatex                                                      \
-  --top-level-division=chapter                                              \
-  --number-sections                                                         \
-  --template arabica.latex                                                  \
-  ./core/*.md                                                               \
-  ./settings/*.yaml                                                         \
+pandoc                                                \
+  -s                                                  \
+  -o ./output/projectname.pdf                         \
+  --data-dir=$HOME/path/to/your/projects/projectname/ \
+  --filter pandoc-crossref                            \
+  --filter pandoc-citeproc                            \
+  --pdf-engine=xelatex                                \
+  --top-level-division=chapter                        \
+  --number-sections                                   \
+  --template arabica.latex                            \
+  ./core/*.md                                         \
+  ./settings/*.yaml                                   \
   ./metadata/*.yaml
 ```
 
