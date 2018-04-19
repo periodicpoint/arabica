@@ -14,19 +14,19 @@ Your content live in separate directory (see `./core/`) where you can organise t
 The *pandoc template* itself lives in `./controls/`.
 4. State-of-the-art technology stack and low tech debt at the same time.
 
-# Installation
+# Install
 ## Preconditions
 1. Install [TeX Live](https://www.tug.org/texlive/) or any alternative [LaTeX distribution](https://www.latex-project.org/get/).
 2. Install [pandoc](https://pandoc.org/).
 
-## Install arabica boilerplate
+## Clone (arabica)
 1. Go to your templates directory: `cd /path/to/your/templates/`.
 2. Clone (or download) this repository
 `git clone https://github.com/qualiacode/arabica.git`
 3. Done!
 
-# Usage
-## Copy and paste (and rename)
+# Use (arabica)
+## Copy and paste (and rename (and delete))
 1. Copy the entire *arabica boilerplate* located at your local templates and paste it to your directory of your projects:
 `cp /path/to/your/templates/arabica/* /path/to/your/projects/projectname/`
 2. Go to your project directory:
@@ -34,7 +34,7 @@ The *pandoc template* itself lives in `./controls/`.
 3. Delete unwanted files like `./examples`:
 `rm -vrf examples/*`
 
-## Metadata settings
+## Set (metadata)
 1. Go to `./settings/00_01_metadata.yaml` and fill in your data e.g. author, title, year, …
 2. Put your values (data) in single quotes.
 3. If you want to leave a key undefined enter a tilde.
@@ -50,7 +50,7 @@ author: &author
   - 'John Doe'
 ```
 
-## LaTeX template settings
+## Set (variables)
 1. You can leave the defaults and you will be fine most of the time.
 2. If you want to change things, then the same rules as in [Metadata settings](#metadata-settings) apply.
 3. Go to `./settings/00_02_settings.yaml` and
