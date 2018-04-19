@@ -18,10 +18,11 @@ The *pandoc template* itself lives in `./controls/`.
 4. State-of-the-art technology stack and low tech debt at the same time.
 
 # Preview
+[![Default title page ](/examples/default_a/titlepage.png)](/examples/default_a/output/arabica.pdf)
 
 Default title page | Default info page | Default example page
 :-----------------:|:-----------------:|:--------------------:
-[![Default title page ](/examples/default_a/titlepage.png)](/examples/default_a/output/arabica.pdf) | [![Default info page](/examples/default_a/infopage.png)](/examples/default_a/output/arabica.pdf) |  [![Default example page](/examples/default_a/examplepage.png)](/examples/default_a/output/arabica.pdf)
+[![Default title page ](/examples/default_a/titlepage.png)](/examples/default_a/output/arabica.pdf) | [![Default info page](/examples/default_a/infopage.png)](/examples/default_a/output/arabica.pdf) | [![Default example page](/examples/default_a/examplepage.png)](/examples/default_a/output/arabica.pdf)
 
 # Examples
 Go to `./examples/` to view a list of complete example book projects.
