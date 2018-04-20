@@ -440,21 +440,15 @@ $for(header-includes)$
 $header-includes$
 $endfor$
 $if(lang)$
-\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
-  \usepackage[shorthands=off,$for(babel-otherlangs)$$babel-otherlangs$,$endfor$main=$babel-lang$]{babel}
-$if(babel-newcommands)$
-  $babel-newcommands$
-$endif$
-\else
-  %----load polyglossia as late as possible as it *could* call bidi if RTL lang
-  %-----------------------------------------------------(e.g. Hebrew or Arabic)
-  %----------------------polyglossia is a babel replacement (needed by XeLaTeX)
+%--------load polyglossia as late as possible BUT BEFORE bidi as it*could* call
+%--------------------------------------------------------------bidi if RTL lang
+%-------------------------------------------------------(e.g. Hebrew or Arabic)
+%------------------------polyglossia is a babel replacement (needed by XeLaTeX)
   \usepackage{polyglossia}
   \setmainlanguage[$polyglossia-lang.options$]{$polyglossia-lang.name$}
 $for(polyglossia-otherlangs)$
   \setotherlanguage[$polyglossia-otherlangs.options$]{$polyglossia-otherlangs.name$}
 $endfor$
-\fi
 $endif$
 $if(dir)$
 \ifxetex
@@ -671,7 +665,7 @@ $if(extratitle)$
           \end{center}
           \vspace{0.01\textheight}
           $else$
-            $if(author)$
+            $if(author)$\\
               \begin{center}
                 \begin{large}
                   $for(author)$
@@ -748,31 +742,39 @@ $if(extratitle)$
   $endif$
 $endif$
 %----------------------------------------------define the title page head field
-\titlehead{%
-  $if(titlehead)$
-    $titlehead$
-  $endif$%
-}
+$if(titlehead)$
+  \titlehead{
+    $if(titlehead)$
+      $titlehead$
+    $endif$
+  }
+$endif$
 %-------------------------------------------------------define the subject line
-\subject{%
-  $if(subject)$
-    $subject$
-  $endif$%
-}
+$if(subject)$
+  \subject{
+    $if(subject)$
+      $subject$
+    $endif$
+  }
+$endif$
 %---------------------------------------------------------define the title line
-\title{%
-  $if(title)$
-    $title$
-  $endif$%
-}
+$if(title)$
+  \title{
+    $if(title)$
+      $title$
+    $endif$
+  }
+$endif$
 %------------------------------------------------------define the subtitle line
-\subtitle{%
-  $if(subtitle)$
-    $subtitle$
-  $endif$%
-}
+$if(subtitle)$
+  \subtitle{
+    $if(subtitle)$
+      $subtitle$
+    $endif$
+  }
+$endif$
 %--------------------------------------------------------define the author line
-\author{%
+\author{
   $if(creators)$
     $for(creators)$
       $if(creators.creator)$
@@ -781,51 +783,56 @@ $endif$
             \textsc{$creators.creator.firstname$}
           $endif$
           $if(creators.creator.lastname)$
-            \textsc{$creators.creator.lastname$}
+            \textsc{$creators.creator.lastname$}\\
           $endif$
           $if(creators.creator.contact)$
-              \\ \href{mailto:$creators.creator.contact$}{$creators.creator.contact$}
+            \href{mailto:$creators.creator.contact$}{$creators.creator.contact$}\\
           $endif$
         $endfor$
-      $endif$$sep$\and%
+      $endif$$sep$\and
     $endfor$
-    \\
   $else$
-    \begin{flushright}
-      \begin{large}
-        $if(author)$
+    $if(author)$
+      \begin{flushright}
+        \begin{large}
           $for(author)$
             \textsc{$author$}$sep$\and
           $endfor$
-        $endif$
-      \end{large}
-    \end{flushright}
+        \end{large}
+      \end{flushright}
+    $endif$
   $endif$
 }
 %----------------------------------------------------------define the date line
-\date{%
-  $if(place)$
-    $place$,
-  $endif$
-  $if(date)$
-    $date$
-  $endif$%
-}
+$if(date)$
+  \date{
+    $if(place)$
+      $place$,
+    $endif$
+    $if(date)$
+      $date$
+    $endif$
+  }
+$endif$
 %--------------------------------------------------------define publishers line
-\publishers{%
-  $if(publishers)$
-    $publishers$
-  $else$
-    $if(version)$
+$if(publishers)$
+  \publishers{
+    $if(publishers)$
+      $publishers$
+    $endif$
+  }
+$else$
+  $if(version)$
+    \publishers{
       \begin{normalsize}
         \href{$version.link$}{$version.timestamp$}\\
         \href{$version.link$}{$version.hash$}\\
       \end{normalsize}
-    $endif$
+    }
   $endif$
-}
+$endif$
 %---------------------------------------------------define the upper title back
-\uppertitleback{%
+\uppertitleback{
   $if(default.object_id.label)$
     $default.object_id.label$\\
   $endif$
@@ -871,8 +878,6 @@ $endif$
         $endfor$
       $endif$$sep$,
     $endfor$
-    \\
-    \\
   $endif$
   $if(default.license)$
     $if(default.license.label)$
@@ -909,15 +914,14 @@ $endif$
     $if(uppertitleback)$
       $uppertitleback$
     $endif$
-  $endif$%
+  $endif$
 }
 %---------------------------------------------------define the lower title back
-\lowertitleback{%
+\lowertitleback{
   $if(tools)$
     $for(tools)$
       $if(tools.description)$
         $tools.description$
-        \\
       $endif$
       $if(tools.stack)$
         $for(tools.stack)$
@@ -935,17 +939,17 @@ $endif$
       $endif$$sep$\\
     $endfor$
   $else$
-    $if(uppertitleback)$
-      $uppertitleback$
+    $if(lowertitleback)$
+      $lowertitleback$
     $endif$
-  $endif$%
+  $endif$
 }
 %-------------------------------------------------------------define dedication
-\dedication{%
-  $if(dedication)$
+$if(dedication)$
+  \dedication{
     $dedication$
-  $endif$%
-}
+  }
+$endif$
 
 %----------------------------------------------------------DOCUMENT STARTS HERE
 \begin{document}

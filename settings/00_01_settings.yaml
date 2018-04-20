@@ -282,9 +282,7 @@ nowidow: ture
 # default:
 #  - 'defaultlines=3'
 #  - 'all'
-nowidowoptions:
-  - 'defaultlines=3'
-  - 'all'
+nowidowoptions: ~
 
 # to generate lorem ipsum blind text text for testing purposes
 # default: ~

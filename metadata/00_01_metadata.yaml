@@ -1,7 +1,7 @@
 ---
 doi: &doi ~
 
-title: &title ~
+title: &title '...'
 
 subtitle: &subtitle ~
 
@@ -52,10 +52,10 @@ license:
   email: *email
   url: ~
 
-version: &version
-  timestamp: ~
-  hash: ~
-  link: ~
+#version: &version
+#  timestamp: ~
+#  hash: ~
+#  link: ~
 
 publishers: ~
 
