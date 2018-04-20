@@ -1,58 +1,61 @@
 ---
-doi: &doi '1234567890'
+doi: &doi ~
 
-title: &title 'Short title'
+title: &title ~
 
-subtitle: &subtitle 'Long pretentious title'
+subtitle: &subtitle ~
 
 author: &author
-  - 'Jane Roe'
+  - ~
 
-web: ~
+web: &web ~
 
-email: &email 'example@domain.tld'
+email: &email ~
 
-subject: &subject 'Subject'
+subject: &subject ~
 
-year: &year '2018'
+year: &year ~
 
-date: &date '\today'
+# example '\today'
+date: &date ~
 
-place: &place 'World'
+place: &place ~
 
 aim:
-  normal: 'To proof the existence of notihng.'
-  formal: 'To get the marster’s degree'
+  normal: ~
+  formal: ~
 
 abstract: &abstract >
-  'Lorem markdownum modis flebant lintea, prae ullis cadente, dixit sed. Lenimen nam vagatur ante erat quamque carminibus rogus admovet casa, vultus quae nec, partem? Cetera oculisque sustinet modulatur patefecit recens. Sortes nec, aurea quod, modo mihi lumina prima dicens erat pectus fortunam iugulatus morbi Heliadum domitamque fecistis. De licet interserit quicquid Ocyroen sola Hector evicere suos tortoque tum est humum conditur. Palmis cerno Paris suam perdite, vestras nervi incomitata est vehebat auras regina mentem aesculus Baucisque memor, is. Simul amnis positi; nata hiemes, retia poscitur lactis nec vobis alimenta. Ille vidi clamor non emicuit opus dubitare ferali reseratis ut faber tamen erubuit; movensque.'
+  ~
 
 another_abstract: &another_abstract >
+  ~
 
-tags: &tags ['turing-machine', 'artificial', 'computational', 'cognition', 'artificial', 'consciousness', 'proof', 'integrated information', 'algorithm', 'meta theory', 'analysis', 'compression', 'kolmogorov', 'complexity', 'emergence', 'computability', 'producibility']
+# ['example1','example2','example3']
+tags: &tags ~
 
 keywords: *tags
 
 institute: &institute
-  - 'Faculty 9'
-  - 'Advanced rocket science'
-  - 'Some Street 314'
-  - 'G-12345 City'
+  - ~
+  - ~
+  - ~
+  - ~
 
-dedication: 'For my family'
+dedication: ~
 
 license:
-  short: '(CC-BY-SA 4.0)'
-  long: 'Creative Commons Attribution-ShareAlike 4.0 International'
-  year: '2018'
+  short: ~
+  long: ~
+  year: *year
   holder: *author
   email: *email
-  url: 'https://creativecommons.org/licenses/by-sa/4.0/'
+  url: ~
 
 version: &version
-  timestamp: '2018-04-02t20:13'
-  hash: 'd670460b4b4aece5915caf5c68d12f560a9fe3e4'
-  link: 'https://github.com/'
+  timestamp: ~
+  hash: ~
+  link: ~
 
 publishers: ~
 
@@ -61,14 +64,14 @@ default:
   version:
     label: 'Version (Timestamp + Hash)'
   publication:
-    label: 'Publikation'
+    label: 'Publication'
   license:
-    label: &license_label 'Lizenz'
+    label: &license_label 'License'
     symbol: &creativecommons_symbol '\ccbysa'
   abstract:
     label: 'Summary'
   another_abstract:
-    label: 'Another abstract'
+    label: 'Abstract'
   person_id:
     label: 'Open Researcher and Contributor ID (ORiCD)'
     symbol: &orcid_symbol '\scalerel*{\includegraphics{./icons/orcid_icon.pdf}}{O}'
@@ -84,9 +87,6 @@ default:
     label: &email_label 'E-Mail'
   web:
     label: &web_label 'Web'
-  thesis:
-    label: 'Abchlussarbeit'
-    student_number_label: &student_number_label 'matriculation number'
   role:
     creator: &creator 'Author'
     co-creator: &co-creator 'Co-Author'
@@ -101,29 +101,29 @@ default:
 # (co-)creators and (co-)authors
 creators:
   - creator:
-    - title: 'Prof.'
-    - firstname: 'Jane'
-    - lastname: 'Roe'
-    - orcid: 'https://orcid.org/0000-0012-1234-1234'
+    - title: ~
+    - firstname: ~
+    - lastname: ~
+    - orcid: ~
     - web: ~
-    - email: 'example@domain.tld'
+    - email: ~
     - role: *creator
     - affiliation:
       <<: *institute
     - address:
-      - 'Jane Roe'
-      - 'Long Street 1'
-      - 'G-12345 City'
-    - id: '123456789'
-    - contact: 'example@domain.tld'
+      - ~
+      - ~
+      - ~
+    - id: ~
+    - contact: ~
     - note: ~
 
 # advisors, reviewers, examinators, participants
 advisors:
   - advisor:
-    - title: 'Mr.'
-    - firstname: 'John'
-    - lastname: 'Doe'
+    - title: ~
+    - firstname: ~
+    - lastname: ~
     - orcid: ~
     - web: ~
     - email: ~
@@ -138,13 +138,13 @@ advisors:
     - contact: ~
     - note: ~
   - advisor:
-    - title: 'Mrs.'
-    - firstname: 'Alice'
-    - lastname: 'Signal'
+    - title: ~
+    - firstname: ~
+    - lastname: ~
     - orcid: ~
     - web: ~
     - email: ~
-    - role: *first_examinator
+    - role: *second_examinator
     - affiliation:
       <<: *institute
     - address:
