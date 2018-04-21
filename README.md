@@ -180,7 +180,7 @@ pandoc                                                \
   ./metadata/*.yaml
 ```
 
-5. For debugging puproses you can produce a `.tex` file by runng pandoc with
+5. For debugging puproses you can produce a `.tex` file by runing pandoc with
 ```
 -o ./output/projectname.tex
 ```
