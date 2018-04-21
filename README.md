@@ -34,22 +34,24 @@ Go to `./examples/` [to view a list of complete example book projects](/examples
 1. Go to your templates directory: `cd /path/to/your/templates/`.
 2. Clone (or download) this repository
 `git clone https://github.com/qualiacode/arabica.git`
-3. Done!
+3. **Done!**
 
 # Use
-## Copy and paste (and rename (and delete))
-1. Copy the entire *arabica boilerplate* located at your local templates and paste it to your directory of your projects:
+## Optional: copy, paste, rename, delete
+1. Copy the entire *arabica boilerplate* located at your own local templates directory and paste the entire *arabica boilerplate* to your directory of your own projects directory:
 `cp /path/to/your/templates/arabica/* /path/to/your/projects/projectname/`
 2. Go to your project directory:
 `cd /path/to/your/projects/projectname/`
-3. Delete unwanted files like `./examples`:
+3. Delete all the files you do not need e.g. `./examples`:
 `rm -vrf examples/*`
 
-## Set (metadata)
-1. Go to `./settings/00_01_metadata.yaml` and fill in your data e.g. author, title, year, …
-2. Put your values (data) in single quotes.
-3. If you want to leave a key undefined enter a tilde.
-3. Example:
+## Set metadata
+1. Go to `./settings/00_01_metadata.yaml`
+2. Set your (meta)data, the more the better.
+3. It is a good idea to add at least one **author**, a **title** and a **year**.
+4. Enclose your values ((meta)data) in single quotes: `'()(meta)data)'`.
+5. If you want to leave a value undefined enter a tilde.
+6. Example:
 
 ```yaml
 title: &title 'Short title'
@@ -59,13 +61,15 @@ subtitle: &subtitle ~
 author: &author
   - 'Jane Roe'
   - 'John Doe'
+
+year: '2018'
 ```
 
-## Set (variables)
+## Set variables
 1. You can leave the defaults and you will be fine most of the time.
 2. If you want to change things, then the same rules as in [Metadata settings](#metadata-settings) apply.
-3. Go to `./settings/00_02_settings.yaml` and
-4. Fill in the gaps, set your settings.
+3. Go to `./settings/00_01_settings.yaml`.
+4. Set your settings.
 5. Example:
 
 ```yaml
@@ -75,21 +79,65 @@ classoption:
   - 'parskip=full'
 
 custom_title_page: false
+
+...
+
+toc: true
 ```
 
-6. Select your favourite **citation style** by saving it to
-`./csl/` and refering to it via the `./settings/settings.yaml` e.g.
-`csl: './csl/chicago-author-date-de.csl'`.
+## Collect
+1. Do your research, collect your bibliographic data.
+2. Go to `./bib/`
+3. Save your bibliographic data in `Bib(La)TeX` format (`.bib`) in the file `./bib/.references.bib`.
+4. Go to `./settings/00_01_settings.yaml`.
+5. Refer to your `.bib` file by adding the corresponding path of your `.bib` file as `value` to the corresponding `key`.
+6. Example (default):
+```
+bibliography: './bib/references.bib'
+```
+7. Example entry in your `.bib` file:
+```
+@article{Cantor1984,
+  langid = {german},
+  title = {Ein Beitrag zur Mannigfaltigkeitslehre},
+  volume = {1877},
+  doi = {10.1007/978-3-7091-9516-1_3},
+  abstract = {Wenn zwei wohldefinirte Mannigfaltigkeiten M und N sich eindeutig und vollständig, Element für Element, einander zuordnen lassen (was, wenn es auf eine Art möglich ist, immer auch noch auf viele...},
+  journaltitle = {Über unendliche, lineare Punktmannigfaltigkeiten},
+  date = {1984},
+  pages = {25-44},
+  author = {Cantor, Georg}
+}
+```
+8. In this example your `cite key` for this bibliographic entry is `Cantor1984`.
+
+## Select
+1. Go to [CSL](http://citationstyles.org/)
+2. Dowload your desired *citation style language file* e.g. `chicago-author-date-de.csl`.
+3. Save your `.csl` fiile to: `./csl/`
+4. Go to `./settings/00_01_settings.yaml`.
+5. Refer to your `.csl` file by adding the corresponding path of your `.csl` file as `value` to the corresponding `key`.
+6. Example (default):
+```
+csl: './csl/chicago-author-date-de.csl'
+```
 
 ## Write
 1. Go to `./core/` and write you markdown files.
 2. Organise them as you like but keep in mind that pandoc will append them sequentially, determined by the alpha-numeric ordering of your file names.
-3. A Good example:
+3. A good example:
 
 ```
 01_introduction.md
 02_mainpart.md
 03_conclusion.md
+```
+
+## Cite
+1. Cite your sources by adding your refercences via `[@citekey]` to your markdown file(s) where ever you need them.
+2. Example:
+```
+„Cantor once said: ‚Wenn zwei wohldefinirte Mannigfaltigkeiten ...‘ [@Cantor1984]“
 ```
 
 ## Run
@@ -111,12 +159,11 @@ pandoc                                                                      \
   ./metadata/*.yaml
 ```
 
-2. Done!
+2. **Done!**
 
 3. Alternatively you can omit the long path in the `--template` option by copying the `arabica.latex` template located at `./controls/arabica.latex` to the default directory of your pandoc templates located at `~/.pandoc/templates/`.
 
 4. If you have copied the `arabica.latex` template into the directory of your default pandoc templates, then you can execute pandoc like this:
-
 
 ```shell
 pandoc                                                \
