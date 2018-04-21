@@ -1,7 +1,7 @@
 ---
-doi: &doi ~
+#doi: &doi ~
 
-title: &title '...'
+title: &title ~
 
 subtitle: &subtitle ~
 
@@ -18,6 +18,8 @@ year: &year ~
 
 # example '\today'
 date: &date ~
+
+submission_date: *date
 
 place: &place ~
 
@@ -82,7 +84,6 @@ default:
     label: &advisor_label 'Supervised'
   submission:
     label: &submission_label 'Submitted on'
-    date: &submission_date '\today'
   email:
     label: &email_label 'E-Mail'
   web:
@@ -96,7 +97,7 @@ default:
     examinator: &examinator 'Examinator'
     first_examinator: &first_examinator '1. Examinator'
     second_examinator: &second_examinator '2. Examinator'
-  extratitle_line:
+  extratitle_line: ~
 
 # (co-)creators and (co-)authors
 creators:
@@ -107,9 +108,26 @@ creators:
     - orcid: ~
     - web: ~
     - email: ~
-    - role: *creator
+    - role: ~
     - affiliation:
-      <<: *institute
+      <<:
+    - address:
+      - ~
+      - ~
+      - ~
+    - id: ~
+    - contact: ~
+    - note: ~
+  - creator:
+    - title: ~
+    - firstname: ~
+    - lastname: ~
+    - orcid: ~
+    - web: ~
+    - email: ~
+    - role: ~
+    - affiliation:
+      <<:
     - address:
       - ~
       - ~
@@ -127,9 +145,9 @@ advisors:
     - orcid: ~
     - web: ~
     - email: ~
-    - role: *first_examinator
+    - role: ~
     - affiliation:
-      <<: *institute
+      <<:
     - address:
       - ~
       - ~
@@ -144,9 +162,9 @@ advisors:
     - orcid: ~
     - web: ~
     - email: ~
-    - role: *second_examinator
+    - role:
     - affiliation:
-      <<: *institute
+      <<:
     - address:
       - ~
       - ~

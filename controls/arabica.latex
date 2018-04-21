@@ -19,7 +19,7 @@ $if(scrlayer)$
   \usepackage{scrlayer}
 $endif$
 
-%-------------------------to define and manage page styles (see "fancyhdr" too)
+%---------------------to define and manage page styles (see pkg "fancyhdr" too)
 $if(scrlayer-scrpage)$
   \usepackage{scrlayer-scrpage}
 $endif$
@@ -51,22 +51,22 @@ $endif$
 
 %--------------------for advanced math typesetting (loads all default math pkg)
 $if(math)$
-  %--------------------------------------mathematical tools to use with amsmath
+%----------------------------------------mathematical tools to use with amsmath
   \usepackage{mathtools}
-  %---------------------------------------ams mathematical facilities for LaTeX
+%-----------------------------------------ams mathematical facilities for LaTeX
   %\usepackage{amsmath%----------------possibly loaded loaded somewhere else too
-  %----------------------------TeX fonts from the american mathematical society
+%------------------------------TeX fonts from the american mathematical society
   \usepackage{amsfonts}
-  %---------------------------------------------additional mathematical symbols
+%-----------------------------------------------additional mathematical symbols
   %\usepackage{amssymb}%---------------possibly loaded loaded somewhere else too
-  %-------------------------------typesetting of custom theorems (in ams style)
+%---------------------------------typesetting of custom theorems (in ams style)
   \usepackage{amsthm}
-  %---------------------------------------------dirac bra-ket and set notations
+%-----------------------------------------------dirac bra-ket and set notations
   \usepackage{braket}
-  %----------------------for unicode (utf8) math typesettings support for XeTeX
-  %-----------------------------------for numbered cases (mappings) environment
+%------------------------for unicode (utf8) math typesettings support for XeTeX
+%-------------------------------------for numbered cases (mappings) environment
   \usepackage{cases}
-  %------------------------for proof trees in the style of the sequent calculus
+%--------------------------for proof trees in the style of the sequent calculus
   \usepackage{bussproofs}
 $endif$
 
@@ -268,7 +268,7 @@ $endif$
 $endif$
 % use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
-%-----------------------------------------------------se microtype if available
+%----------------------------------------------------see microtype if available
 %---------microtype for subliminal refinements towards typographical perfection
 \IfFileExists{microtype.sty}{%
 \usepackage[$for(microtypeoptions)$$microtypeoptions$$sep$,$endfor$]{microtype}
@@ -520,8 +520,12 @@ $if(twocol_toc)$
   \unsettoc{toc}{onecolumn}
 $endif$
 
-%-----if set, then one and only one single font is used for the entire document
-%------------------------------------------------------------including headings
+%--typographical intervention aka matter of taste: set this to true if you want
+%--to use one and only one single font (typeface) for the entire document
+%-----------------------------------------------------------including headings.
+%---------(komascript uses bold sans font for headings per default which is not
+%---------------------------------------------------------------optimal # IMO.)
+%-----------------------------------------------------------------default: true
 $if(serif_headings)$
   \setkomafont{disposition}{\normalfont}
 $endif$
@@ -533,10 +537,10 @@ $endif$
 %--------------------------------------define the layout of optional extratitle
 $if(extratitle)$
   $if(title_page_a)$
-    %------------------------------------------define the the extratitle page A
+%----------------------------------------------define the the extratitle page A
     \extratitle{%
       $if(extratitle)$
-        $if(creators)$
+        $if(creators.creator.lastname)$
           \begin{flushright}
             \begin{large}
               $for(creators)$
@@ -600,7 +604,7 @@ $if(extratitle)$
     }
   $else$
     $if(title_page_b)$
-      %----------------------------------------define the the extratitle page B
+%--------------------------------------------------define the extratitle page B
       \extratitle{%
         $if(extratitle)$
           $if(titlepage.logo)$
@@ -612,60 +616,60 @@ $if(extratitle)$
             \\
           $endif$
           $if(institute)$
-          \begin{footnotesize}
-            $for(institute)$
-              $institute$$sep$\\
-            $endfor$
-          \end{footnotesize}
-          \vspace{0.02\textheight}
-          \vfill
+            \begin{footnotesize}
+              $for(institute)$
+                $institute$$sep$\\
+              $endfor$
+            \end{footnotesize}
+            \vspace{0.02\textheight}
+            \vfill
           $endif$
           $if(subject)$
-          \begin{center}
-            $subject$
-          \end{center}
+            \begin{center}
+              $subject$
+            \end{center}
+            \vspace{0.02\textheight}
           $endif$
-          \vspace{0.02\textheight}
           $if(title)$
             \begin{center}
               \begin{Huge}
                 $title$
               \end{Huge}
             \end{center}
+            \vspace{0.01\textheight}
           $endif$
-          \vspace{0.01\textheight}
           $if(subtitle)$
             \begin{center}
               \begin{LARGE}
                 $subtitle$
               \end{LARGE}
             \end{center}
+            \vspace{0.01\textheight}
           $endif$
-          \vspace{0.01\textheight}
-          $if(creators)$
-          \begin{center}
-            $for(creators)$
-              $if(creators.creator)$
-                $for(creators.creator)$
-                  $if(creators.creator.firstname)$
-                    \textsc{$creators.creator.firstname$}
-                  $endif$
-                  $if(creators.creator.lastname)$
-                    \textsc{$creators.creator.lastname$}
-                  $endif$
-                  $if(creators.creator.contact)$
-                    \\ \href{mailto:$creators.creator.contact$}{$creators.creator.contact$}
-                  $endif$
-                  $if(creators.creator.id)$
-                    \\($creators.creator.id$)
-                  $endif$
-                $endfor$
-              $endif$$sep$\\
-            $endfor$
-          \end{center}
-          \vspace{0.01\textheight}
+          $if(creators.creator.lastname)$
+            \begin{center}
+              $for(creators)$
+                $if(creators.creator)$
+                  $for(creators.creator)$
+                    $if(creators.creator.firstname)$
+                      \textsc{$creators.creator.firstname$}
+                    $endif$
+                    $if(creators.creator.lastname)$
+                      \textsc{$creators.creator.lastname$}
+                    $endif$
+                    $if(creators.creator.contact)$
+                      \\ \href{mailto:$creators.creator.contact$}{$creators.creator.contact$}
+                    $endif$
+                    $if(creators.creator.id)$
+                      \\($creators.creator.id$)
+                    $endif$
+                  $endfor$
+                $endif$$sep$\\
+              $endfor$
+            \end{center}
+            \vspace{0.01\textheight}
           $else$
-            $if(author)$\\
+            $if(author)$
               \begin{center}
                 \begin{large}
                   $for(author)$
@@ -673,9 +677,9 @@ $if(extratitle)$
                   $endfor$
                 \end{large}
               \end{center}
+              \vspace{0.01\textheight}
             $endif$
           $endif$
-          \vspace{0.01\textheight}
           $if(place)$
             \begin{center}
               \begin{Large}
@@ -698,45 +702,45 @@ $if(extratitle)$
               \end{large}
             \end{center}
           $endif$
+          \vfill
         $endif$
-        \vfill
-        $if(advisors)$
+        $if(submission_date)$
+          $if(default.submission.label)$
+            $default.submission.label$\\
+            $default.submission.date$\\
+          $endif$
+        $endif$
+        $if(advisors.advisor.lastname)$
           \begin{flushleft}
             \begin{footnotesize}
-              $if(default.submission.label)$
-                $default.submission.label$\\%
-                $default.submission.date$\\
-              $endif$
               $if(default.advisor.label)$
-                $default.advisor.label$\\%
+                $default.advisor.label$\\
               $endif$
-              $if(advisors)$
-                $for(advisors)$
-                  $if(advisors.advisor)$
-                    $for(advisors.advisor)$
-                      $if(advisors.advisor.title)$
-                        $advisors.advisor.title$
-                      $endif$
-                      $if(advisors.advisor.firstname)$
-                        \textsc{$advisors.advisor.firstname$}
-                      $endif$
-                      $if(advisors.advisor.lastname)$
-                        \textsc{$advisors.advisor.lastname$}
-                      $endif$
-                      $if(advisors.advisor.contact)$
-                        (\url{$advisors.advisor.contact$})
-                      $endif$
-                      $if(advisors.advisor.role)$
-                        ($advisors.advisor.role$)
-                      $endif$
-                    $endfor$
-                  $endif$$sep$\\
-                $endfor$
-              $endif$
+              $for(advisors)$
+                $if(advisors.advisor)$
+                  $for(advisors.advisor)$
+                    $if(advisors.advisor.title)$
+                      $advisors.advisor.title$
+                    $endif$
+                    $if(advisors.advisor.firstname)$
+                      \textsc{$advisors.advisor.firstname$}
+                    $endif$
+                    $if(advisors.advisor.lastname)$
+                      \textsc{$advisors.advisor.lastname$}
+                    $endif$
+                    $if(advisors.advisor.contact)$
+                      (\url{$advisors.advisor.contact$})
+                    $endif$
+                    $if(advisors.advisor.role)$
+                      ($advisors.advisor.role$)
+                    $endif$
+                  $endfor$
+                $endif$$sep$\\
+              $endfor$
             \end{footnotesize}
           \end{flushleft}
+          \vfill
         $endif$
-        \vfill
       }
     $endif$
   $endif$
@@ -764,6 +768,8 @@ $if(title)$
       $title$
     $endif$
   }
+$else$
+  \title{~}
 $endif$
 %------------------------------------------------------define the subtitle line
 $if(subtitle)$
@@ -833,33 +839,37 @@ $else$
 $endif$
 %---------------------------------------------------define the upper title back
 \uppertitleback{
-  $if(default.object_id.label)$
-    $default.object_id.label$\\
-  $endif$
   $if(title)$
-    $title$
+    $if(doi)$
+      $if(default.object_id.label)$
+        $default.object_id.label$\\
+      $endif$
+      $title$
+      $if(default.object_id.symbol)$
+        $default.object_id.symbol$
+      $endif$
+      \url{$doi$}\\
+      \\
+    $endif$
   $endif$
-  $if(default.object_id.symbol)$
-    $default.object_id.symbol$
-  $endif$
-  $if(doi)$
-    \url{$doi$}\\
-    \\
-  $endif$
-  $if(default.version.label)$
-    $default.version.label$\\
-  $endif$
-  $if(version)$
-    \begin{normalsize}
+  $if(version.timestamp)$
+    $if(default.version.label)$
+      $default.version.label$\\
+    $endif$
+    $if(version.timestamp)$
       \href{$version.link$}{$version.timestamp$}\\
+    $endif$
+    $if(version.hash)$
       \href{$version.link$}{$version.hash$}\\
-    \end{normalsize}
-    \\
+      \\
+    $endif$
   $endif$
-  $if(default.person_id.label)$
-    $default.person_id.label$\\
-  $endif$
-  $if(creators)$
+  $if(creators.creator.lastname)$
+    $if(creators.creator.orcid)$
+      $if(default.person_id.label)$
+        $default.person_id.label$\\
+      $endif$
+    $endif$
     $for(creators)$
       $if(creators.creator)$
         $for(creators.creator)$
@@ -879,31 +889,33 @@ $endif$
       $endif$$sep$,
     $endfor$
   $endif$
-  $if(default.license)$
-    $if(default.license.label)$
-      $default.license.label$\\
-    $endif$
-    $if(default.license.symbol)$
-      $default.license.symbol$~
-    $endif$
-    $if(license.long)$
-      $license.long$
-    $endif$
-    $if(license.short)$
-      $license.short$\\
-    $endif$
-    $if(license.url)$
-      \url{$license.url$}\\
-    $endif$
-    $if(license.year)$
-      $license.year$
-    $endif$
-    $if(license.holder)$
-      \textsc{$license.holder$}
-    $endif$
-    $if(license.email)$
-      \href{mailto:$license.email$}{$license.email$}\\
-      \\
+  $if(license.short)$
+    $if(default.license)$
+      $if(default.license.label)$
+        $default.license.label$\\
+      $endif$
+      $if(default.license.symbol)$
+        $default.license.symbol$~
+      $endif$
+      $if(license.long)$
+        $license.long$
+      $endif$
+      $if(license.short)$
+        $license.short$\\
+      $endif$
+      $if(license.url)$
+        \url{$license.url$}\\
+      $endif$
+      $if(license.year)$
+        $license.year$
+      $endif$
+      $if(license.holder)$
+        \textsc{$license.holder$}
+      $endif$
+      $if(license.email)$
+        \href{mailto:$license.email$}{$license.email$}\\
+        \\
+      $endif$
     $endif$
   $endif$
   $if(web)$
@@ -918,7 +930,7 @@ $endif$
 }
 %---------------------------------------------------define the lower title back
 \lowertitleback{
-  $if(tools)$
+  $if(tools.description)$
     $for(tools)$
       $if(tools.description)$
         $tools.description$
@@ -956,32 +968,17 @@ $endif$
 
 %------------------------------------------------------print title page(s) here
 $if(custom_title_page)$
-  %-----------------------------if set define and print custom title pages here
+%-------------------------------if set define and print custom title pages here
   \begin{titlepage}
     ...
   \end{titlepage}
 $else$
-  %----------------------------------------------print default title pages here
+%------------------------------------------------print default title pages here
   \maketitle
 $endif$
 
-%--------------------------------------------------------start forntmatter here
+%--------------------------------------------------------start frontmatter here
 \frontmatter
-
-$if(title)$
-  $if(beamer)$
-    \frame{\titlepage}
-  $else$
-    \maketitle
-  $endif$
-  $if(article)$
-    $if(abstract)$
-      \begin{abstract}
-        $abstract$
-      \end{abstract}
-    $endif$
-  $endif$
-$endif$
 
 $for(include-before)$
 $include-before$
