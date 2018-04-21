@@ -180,6 +180,11 @@ pandoc                                                \
   ./metadata/*.yaml
 ```
 
+5. For debugging puproses you can produce a `.tex` file by runng pandoc with
+```
+-o ./output/projectname.tex
+```
+
 5. Please note, though: the *arabica boilerplate* is designed to be used with the given directory structure respectively file structure indicated in [BODYPLAN.md](./BODYPLAN.md).
 Of particular importance are the *metadata* and *settings* files: `./metadata/00_01_metadata.yaml` `./settings/00_02_settings.yaml`.
 
@@ -198,7 +203,7 @@ MIT License
 
 Copyright (c) 2018 Martin Maga
 
-Go to [./LICENSE.md](./LICENSE.md) for more.
+Go to [./LICENSE.md](./LICENSE.md).
 
 # References and Credits
 1. Plot graphics: [Gnuplot](http://gnuplot.sourceforge.net/demo_5.0/hidden2.html)
