@@ -102,7 +102,6 @@ bibliography: './bib/references.bib'
   title = {Ein Beitrag zur Mannigfaltigkeitslehre},
   volume = {1877},
   doi = {10.1007/978-3-7091-9516-1_3},
-  abstract = {Wenn zwei wohldefinirte Mannigfaltigkeiten M und N sich eindeutig und vollständig, Element für Element, einander zuordnen lassen (was, wenn es auf eine Art möglich ist, immer auch noch auf viele...},
   journaltitle = {Über unendliche, lineare Punktmannigfaltigkeiten},
   date = {1984},
   pages = {25-44},
