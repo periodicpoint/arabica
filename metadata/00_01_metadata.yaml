@@ -1,5 +1,5 @@
 ---
-#doi: &doi ~
+doi: &doi ~
 
 title: &title ~
 
@@ -31,7 +31,6 @@ abstract: &abstract >
   ~
 
 another_abstract: &another_abstract >
-  ~
 
 # ['example1','example2','example3']
 tags: &tags ~
