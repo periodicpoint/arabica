@@ -1,0 +1,34 @@
+# set terminal pdf color  background "#ffffff" enhanced font "arial,8" fontscale 1.0 size 540, 384 
+# set output 'hidden2.1.png'
+set bar 1.000000 front
+set style fill   solid 0.50 border
+set style circle radius graph 0.02, first 0.00000, 0.00000
+set style ellipse size graph 0.05, 0.03, first 0.00000 angle 0 units xy
+unset key
+set style textbox transparent margins  1.0,  1.0 border
+unset logscale
+set isosamples 25, 25
+set hidden3d front offset 1 trianglepattern 3 undefined 1 altdiagonal bentover
+set style data lines
+set xyplane at 0
+unset paxis 1 tics
+unset paxis 2 tics
+unset paxis 3 tics
+unset paxis 4 tics
+unset paxis 5 tics
+unset paxis 6 tics
+unset paxis 7 tics
+set title "Mixing pm3d surfaces with hidden-line plots"
+set cbrange [ -1.00000 : 1.00000 ] noreverse nowriteback
+set paxis 1 range [ * : * ] noreverse nowriteback
+set paxis 2 range [ * : * ] noreverse nowriteback
+set paxis 3 range [ * : * ] noreverse nowriteback
+set paxis 4 range [ * : * ] noreverse nowriteback
+set paxis 5 range [ * : * ] noreverse nowriteback
+set paxis 6 range [ * : * ] noreverse nowriteback
+set paxis 7 range [ * : * ] noreverse nowriteback
+set palette rgbformulae 31, -11, 32
+set colorbox vertical origin screen 0.9, 0.2, 0 size screen 0.05, 0.6, 0 front  noinvert bdefault
+f(x,y) = sin(-sqrt((x+5)**2+(y-7)**2)*0.5)
+GPFUN_f = "f(x,y) = sin(-sqrt((x+5)**2+(y-7)**2)*0.5)"
+splot f(x,y) with pm3d, x*x-y*y with lines lc rgb "black"
