@@ -3,6 +3,9 @@ A sound and versatile [pandoc](http://pandoc.org/) [LaTeX](https://www.latex-pro
 [YAML](http://yaml.org/), [KOMA-Script](https://ctan.org/pkg/koma-script?lang=en), [BibLaTeX](https://ctan.org/pkg/biblatex?lang=en) and
 [CSL](http://citationstyles.org/).
 
+For typesetting an **article** please see the
+[**robusta boilerplate**](https://github.com/qualiacode/robusta).
+
 # Thanks
 The [*arabica boilerplate*](https://github.com/qualiacode/arabica) is inspired by the [pandoc latex template *eisvogel* by Wandmalfarbe](https://github.com/Wandmalfarbe/pandoc-latex-template) and was built with the help of the following sources and tools: [References and Credits](#references-and-credits).
 For other projects like the one at hand please see [the list of user contributed templates at the pandoc wiki](https://github.com/jgm/pandoc/wiki/User-contributed-templates)
