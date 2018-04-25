@@ -1,2 +1,0 @@
-<!--start mainmatter here-->
-\mainmatter
