@@ -864,11 +864,9 @@ $endif$
       \\
     $endif$
   $endif$
-  $if(creators.creator.lastname)$
-    $if(creators.creator.orcid)$
-      $if(default.person_id.label)$
-        $default.person_id.label$\\
-      $endif$
+  $if(creators)$
+    $if(default.person_id.label)$
+      $default.person_id.label$\\
     $endif$
     $for(creators)$
       $if(creators.creator)$
@@ -887,7 +885,8 @@ $endif$
           $endif$
         $endfor$
       $endif$$sep$,
-    $endfor$
+    $endfor$\\
+    \\
   $endif$
   $if(license.short)$
     $if(default.license)$
