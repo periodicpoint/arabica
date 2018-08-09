@@ -41,8 +41,8 @@ documentclass: 'scrbook'
 #  - 'parskip=full'
 classoption:
   - 'twoside'
-  - 'twocolumn'
-  - 'parskip=full'
+  - 'onecolumn'
+#  - 'twocolumn'
 
 # TITLEPAGE(S) SETTINGS
 # to omit the default title pages and specify your own titlepage layout in
@@ -326,7 +326,7 @@ float: ~
 # uses document class settings for indentation (the default LaTeX template
 # otherwise removes indentation and adds space between paragraphs)
 # default: ~
-indent: ~
+indent: true
 
 # disables default behavior of LaTeX template that redefines (sub)paragraphs as
 # sections, changing the appearance of nested headings in some classes
