@@ -6,10 +6,17 @@ $endif$
 
 \documentclass[$if(fontsize)$$fontsize$,$endif$$if(lang)$$babel-lang$,$endif$$if(papersize)$$papersize$paper,$endif$$if(beamer)$ignorenonframetext,$if(handout)$handout,$endif$$if(aspectratio)$aspectratio=$aspectratio$,$endif$$endif$$for(classoption)$$classoption$$sep$,$endfor$]{$documentclass$}
 
+%------------------------------------------------------------------------BUGFIX
+\makeatletter
+\newif\ifonecol
+\@ifclasswith{scrbook}{onecolumn}{\onecoltrue}{\onecolfalse}
+%\newcommand{\switchcol}{\ifonecol ONE\else TWO\fi}
+\makeatother
+
 %----------------------------------------------------------------EXTRA PACKAGES
 %-------------------------------advanced font selection in XeLaTeX and LuaLaTeX
 %---------------------------------enable system font access (needed by XeLaTex)
-%------------------for: \setmainfont{...}, \setsansfont{...}, \setmonofont{...} %---------------------------------and  \setmathfont{...} see option "mainfont".
+%------------------for: \setmainfont{...}, \setsansfont{...}, \setmonofont{...} %---------------------------------and \setmathfont{...} see option "mainfont".
 $if(fontspec)$
   \usepackage{fontspec}
 $endif$
@@ -478,7 +485,7 @@ $for(bibliography)$
 $endfor$
 $endif$
 
-%---------------------------------------------------------------------BUG FIXES
+%------------------------------------------------------------------------BUGFIX
 %-----------------------------------------------------------------longtable bug
 %--------------------------------------------------------------solve the error:
 %------------------"! Package longtable Error: longtable not in 1-column mode."
@@ -492,20 +499,28 @@ $endif$
 \let\oldlt\longtable
 \let\endoldlt\endlongtable
 \def\longtable{\@ifnextchar[\longtable@i \longtable@ii}
-\def\longtable@i[#1]{\begin{figure}[t]
+\def\longtable@i[#1]{\begin{figure*}[t]
 \onecolumn
-\begin{minipage}{0.5\textwidth}
+\centering
+\begin{minipage}{0.99\textwidth}
 \oldlt[#1]
 }
-\def\longtable@ii{\begin{figure}[t]
+\def\longtable@ii{\begin{figure*}[t]
 \onecolumn
-\begin{minipage}{0.5\textwidth}
+\centering
+\begin{minipage}{0.99\textwidth}
 \oldlt
 }
 \def\endlongtable{\endoldlt
 \end{minipage}
+%-----------------to switch back to "\onecolumn"/"\twocolumn" if classoption is
+%--------------------------------------------------------"oncolumn"/"twocolumn"
+\ifonecol
+\onecolumn
+\else
 \twocolumn
-\end{figure}}
+\fi
+\end{figure*}}
 \makeatother
 %-----------------------------------------------------------------------end fix
 
@@ -864,10 +879,12 @@ $endif$
       \\
     $endif$
   $endif$
-  $if(creators)$
+  $if(author)$
     $if(default.person_id.label)$
       $default.person_id.label$\\
     $endif$
+  $endif$
+  $if(creators)$
     $for(creators)$
       $if(creators.creator)$
         $for(creators.creator)$
@@ -884,9 +901,8 @@ $endif$
             \url{$creators.creator.orcid$}
           $endif$
         $endfor$
-      $endif$$sep$,
-    $endfor$\\
-    \\
+      $endif$$sep$~\\
+    $endfor$
   $endif$
   $if(license.short)$
     $if(default.license)$
