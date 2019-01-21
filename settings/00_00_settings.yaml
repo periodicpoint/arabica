@@ -91,19 +91,19 @@ toc-depth: 2
 # DEFAULT PACKAGES
 # option for geometry package, e.g. margin=1in; may be repeated for multiple
 # options
-# default: ~
-geometry: ~
+# default:
+geometry:
 
 # sets margins, if geometry is not used (otherwise geometry overrides these)
-# default: ~
-margin-left: ~
-margin-right: ~
-margin-top: ~
-margin-bottom: ~
+# default:
+margin-left:
+margin-right:
+margin-top:
+margin-bottom:
 
 # adjusts line spacing using the setspace package, e.g. 1.25, 1.5
-# default: ~
-linestretch: ~
+# default:
+linestretch:
 
 # font package for use with pdflatex; TeX Live includes many options,
 # documented in the LaTeX Font Catalogue. The default is Latin Modern.
@@ -113,8 +113,8 @@ fontfamily: 'libertine'
 # options for package used as fontfamily; e.g. osf,sc with fontfamily set to
 # mathpazo provides Palatino with old-style figures and true small caps; may be
 # repeated for multiple options
-# default: ~
-fontfamilyoptions: ~
+# default:
+fontfamilyoptions:
 
 # advanced font selection in XeLaTeX and LuaLaTeX
 # enable system font access (needed by XeLaTex)
@@ -130,21 +130,21 @@ mainfont: 'Libertinus Serif'
 sansfont: 'Libertinus Sans'
 monofont: 'Libertinus Mono'
 mathfont: 'Libertinus Math'
-CJKmainfont: ~
+CJKmainfont:
 
 # options to use with mainfont, sansfont, monofont, mathfont, CJKmainfont in
 # xelatex and lualatex. Allow for any choices available through fontspec, such # as the OpenType features Numbers=OldStyle,Numbers=Proportional. May be
 # repeated for multiple options.
-# default: ~
-mainfontoptions: ~
-sansfontoptions: ~
-monofontoptions: ~
-mathfontoptions: ~
-CJKoptions: ~
+# default:
+mainfontoptions:
+sansfontoptions:
+monofontoptions:
+mathfontoptions:
+CJKoptions:
 
 # allows font encoding to be specified through fontenc package (with pdflatex); # default is T1 (see guide to LaTeX font encodings)
-# default: ~
-fontenc: ~
+# default:
+fontenc:
 
 # options to pass to the microtype package
 # the microtype package is loaded automatically if available
@@ -157,45 +157,45 @@ colorlinks: true
 
 # color for internal links, citation links, external links, and links in table # of contents; uses options allowed by xcolor, including the dvipsnames,
 # svgnames, and x11names lists
-# default: ~
-linkcolor: ~
-citecolor: ~
-urlcolor: ~
-toccolor: ~
+# default:
+linkcolor:
+citecolor:
+urlcolor:
+toccolor:
 
 # causes links to be printed as footnotes
-# default: ~
-links-as-notes: ~
+# default:
+links-as-notes:
 
 # EXTRA PACKAGES
 # to manage text 'layers' within koma-script
-# default: ~
-scrlayer: ~
+# default:
+scrlayer:
 
 # to define and manage page styles (see "fancyhdr" too)
-# default: ~
-scrlayer-scrpage: ~
+# default:
+scrlayer-scrpage:
 
 # to control note columns parallel to the main text
 # to set side note column you need pkg "scrlayer-notecolumn"
 # you may want to set: \setkomafont{notecolumn.marginpar}{\footnotesize}
-# default: ~
-scrlayer-notecolumn: ~
+# default:
+scrlayer-notecolumn:
 # default: '\footnotesize'
 notecolumnfontsize: '\footnotesize'
 
 # to mix onecolumn and twocolumn modes for example for wide equations.
 # usage: \begin{strip}...\end{strip}
-# default: ~
-cuted: ~
+# default:
+cuted:
 
 # for url-sensitive linebreaks (needed by XeLaTex)
-# default: ~
-url: ~
+# default:
+url:
 
 # for fitch-style natural deduction proofs
-# default: ~
-lplfitch: ~
+# default:
+lplfitch:
 
 # for advanced math typesetting (loads all default math pkg)
 # if you set this option all the folowing packages will be loaded automatically
@@ -221,16 +221,16 @@ lplfitch: ~
 math: true
 
 # to create (tabular cells spanning) multiple rows
-# default: ~
-multirow: ~
+# default:
+multirow:
 
 # to create (tabular cells spanning) multiple columns (load before pkg "bidi")
-# default: ~
-multicol: ~
+# default:
+multicol:
 
 # to create continuation headings and legends for floats
-# default: ~
-ccaption: ~
+# default:
+ccaption:
 
 # to inlcude images (.pdf, .eps, .png)
 # default: true
@@ -242,39 +242,39 @@ graphics: true
 scalerel: true
 
 # to allow text to flow around graphics
-# default: ~
-wrapfig: ~
+# default:
+wrapfig:
 
 # to insert pictures into paragraphs (see pkg "picins")
-# default: ~
-picinpar: ~
+# default:
+picinpar:
 
 # for driver-independent color extensions (see option "colorlinks")
 # the package xcolor is loaded automatically if colorlinks are set
-# default: ~
-xcolor: ~
+# default:
+xcolor:
 # default: 'usenames'
 xcoloroptions: 'usenames'
 
 # to create postscript and pdf graphics in TeX (see pkg "tikz")
-# default: ~
-pgf: ~
+# default:
+pgf:
 
 # for drawing functions in LaTeX
 # you may want to use specific tikz libraries e.g.:
 # \usetikzlibrary{shapes,arrows,chains,positioning,fit,automata}
-# default: ~
-tikz: ~
-# default: ~
-usetikzlibrary: ~
+# default:
+tikz:
+# default:
+usetikzlibrary:
 
 # to not interpret latex commands but display them (see pkg "upquote")
-# default: ~
-verbatim: ~
+# default:
+verbatim:
 
 # to typeset dropped capitals
-# default: ~
-lettrine: ~
+# default:
+lettrine:
 
 # to avoid widows
 # default: true
@@ -282,25 +282,25 @@ nowidow: ture
 # default:
 #  - 'defaultlines=3'
 #  - 'all'
-nowidowoptions: ~
+nowidowoptions:
 
 # to generate lorem ipsum blind text text for testing purposes
-# default: ~
-blindtext: ~
+# default:
+blindtext:
 
 # to generate sentences in kant's style for testing purposes
-# default: ~
-kantlipsum: ~
+# default:
+kantlipsum:
 
 # to draw frame around pages to see margin changes for testing purposes
-# default: ~
-showframe: ~
+# default:
+showframe:
 
 # to print watermarks
 # firstpage to put a watermark text only on the first page
 # nostamp for quickly removing the “draft” status from a document
-# default: ~
-draftwatermark: ~
+# default:
+draftwatermark:
 # default:
 #  - 'firstpage'
 #  - 'nostamp'
@@ -311,27 +311,27 @@ draftwatermarkoptions:
   - 'titlepage'
 
 # to include the creative commons icons in my document
-# default: ~
-ccicons: ~
+# default:
+ccicons:
 
 # set pagestyle (needs pkg "scrlayer-scrpage")
-# default: ~
-scrheadings: ~
+# default:
+scrheadings:
 
 # float (load pkg "float" before pkg "hyperref")
-# default: ~
-float: ~
+# default:
+float:
 
 # DEFAULT SETTINGS
 # uses document class settings for indentation (the default LaTeX template
 # otherwise removes indentation and adds space between paragraphs)
-# default: ~
+# default:
 indent: true
 
 # disables default behavior of LaTeX template that redefines (sub)paragraphs as
 # sections, changing the appearance of nested headings in some classes
-# default: ~
-subparagraph: ~
+# default:
+subparagraph:
 
 # numbering depth for sections, if sections are numbered
 # default: 3
@@ -370,24 +370,24 @@ nocite: |
   @*
 
 # if you want to have a custom title for your bibliography specify it here
-# default: ~
-reference-section-title: ~
+# default:
+reference-section-title:
 
 # bibliography style, when used with --natbib and --biblatex.
-# default: ~
-biblio-style: ~
+# default:
+biblio-style:
 
 # bibliography title, when used with --natbib and --biblatex.
-# default: ~
-biblio-title: ~
+# default:
+biblio-title:
 
 # list of options for biblatex.
-# default: ~
-biblatexoptions: ~
+# default:
+biblatexoptions:
 
 # list of options for natbib.
-# default: ~
-natbiboptions: ~
+# default:
+natbiboptions:
 
 # EXTRA SETTINGS
 # for creative commons icons
@@ -395,8 +395,8 @@ natbiboptions: ~
 ccicons: true
 
 # to inject hyperref compatible metadata into the pdf
-# default: ~
-hyperxmp: ~
+# default:
+hyperxmp:
 
 # to mix onecolumn and twocolumn modes for example for wide equations.
 # usage: \begin{strip}...\end{strip}
