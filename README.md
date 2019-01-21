@@ -182,6 +182,7 @@ pandoc                                                \
   ./settings/*.yaml                                   \
   ./metadata/*.yaml
 ```
+Note.- Optionally, you can run `make pdf` on the root of the project directory to generate the book.
 
 5. For debugging puproses you can produce a `.tex` file by runing pandoc with
 ```
