@@ -1,64 +1,58 @@
 ---
-doi: &doi ~
+doi: &doi
 
-title: &title ~
+title: &title 'Title'
 
-subtitle: &subtitle ~
+subtitle: &subtitle 'Long pretentious'
 
 author: &author
-  - ~
+  - 'Author'
 
-web: &web ~
+web: &web http://www.example.org/ 
 
-email: &email ~
+email: &email 'example@example.org'
 
-subject: &subject ~
+subject: &subject 'A research paper'
 
-year: &year ~
+year: &year '2019'
 
-# example '\today'
-date: &date ~
+date: &date '\today'
 
 submission_date: *date
 
-place: &place ~
+place: &place 'World'
 
 aim:
-  normal: ~
-  formal: ~
+  normal:
+  formal:
 
 abstract: &abstract >
-  ~
+  This is an abstract placeholder
 
 another_abstract: &another_abstract >
 
-# ['example1','example2','example3']
-tags: &tags ~
+tags: &tags ['Word','and','Object']
 
 keywords: *tags
 
 institute: &institute
-  - ~
-  - ~
-  - ~
-  - ~
 
-dedication: ~
+dedication:
 
 license:
-  short: ~
-  long: ~
+  short:
+  long:
   year: *year
   holder: *author
   email: *email
-  url: ~
+  url:
 
 #version: &version
-#  timestamp: ~
-#  hash: ~
-#  link: ~
+#  timestamp:
+#  hash:
+#  link:
 
-publishers: ~
+publishers:
 
 # default names, labels and symbols
 default:
@@ -96,81 +90,81 @@ default:
     examinator: &examinator 'Examinator'
     first_examinator: &first_examinator '1. Examinator'
     second_examinator: &second_examinator '2. Examinator'
-  extratitle_line: ~
+  extratitle_line:
 
 # (co-)creators and (co-)authors
 creators:
   - creator:
-    - title: ~
-    - firstname: ~
-    - lastname: ~
-    - orcid: ~
-    - web: ~
-    - email: ~
-    - role: ~
-    - affiliation:
-      <<:
-    - address:
-      - ~
-      - ~
-      - ~
-    - id: ~
-    - contact: ~
-    - note: ~
-  - creator:
-    - title: ~
-    - firstname: ~
-    - lastname: ~
-    - orcid: ~
-    - web: ~
-    - email: ~
-    - role: ~
-    - affiliation:
-      <<:
-    - address:
-      - ~
-      - ~
-      - ~
-    - id: ~
-    - contact: ~
-    - note: ~
-
-# advisors, reviewers, examinators, participants
-advisors:
-  - advisor:
-    - title: ~
-    - firstname: ~
-    - lastname: ~
-    - orcid: ~
-    - web: ~
-    - email: ~
-    - role: ~
-    - affiliation:
-      <<:
-    - address:
-      - ~
-      - ~
-      - ~
-    - id: ~
-    - contact: ~
-    - note: ~
-  - advisor:
-    - title: ~
-    - firstname: ~
-    - lastname: ~
-    - orcid: ~
-    - web: ~
-    - email: ~
+    - title:
+    - firstname:
+    - lastname:
+    - orcid:
+    - web:
+    - email:
     - role:
     - affiliation:
       <<:
     - address:
-      - ~
-      - ~
-      - ~
-    - id: ~
-    - contact: ~
-    - note: ~
+      -
+      -
+      -
+    - id:
+    - contact:
+    - note:
+  - creator:
+    - title:
+    - firstname:
+    - lastname:
+    - orcid:
+    - web:
+    - email:
+    - role:
+    - affiliation:
+      <<:
+    - address:
+      -
+      -
+      -
+    - id:
+    - contact:
+    - note:
+
+# advisors, reviewers, examinators, participants
+advisors:
+  - advisor:
+    - title:
+    - firstname:
+    - lastname:
+    - orcid:
+    - web:
+    - email:
+    - role:
+    - affiliation:
+      <<:
+    - address:
+      -
+      -
+      -
+    - id:
+    - contact:
+    - note:
+  - advisor:
+    - title:
+    - firstname:
+    - lastname:
+    - orcid:
+    - web:
+    - email:
+    - role:
+    - affiliation:
+      <<:
+    - address:
+      -
+      -
+      -
+    - id:
+    - contact:
+    - note:
 
 # tech stack
 tools:
@@ -181,7 +175,7 @@ tools:
     - label: 'Atom Editor'
     - url: 'https://atom.io/'
   - stack:
-    - symbol: ~
+    - symbol:
     - label: 'Better Bib(La)TeX for Zotero'
     - url: 'https://retorque.re/zotero-better-bibtex/'
   - stack:
@@ -193,11 +187,11 @@ tools:
     - label: 'git'
     - url: 'https://git-scm.com/'
   - stack:
-    - symbol: ~
+    - symbol:
     - label: 'KOMA-Script'
     - url: 'https://ctan.org/pkg/koma-script?lang=en/'
   - stack:
-    - symbol: ~
+    - symbol:
     - label: '\LaTeX'
     - url: 'https://www.latex-project.org/'
   - stack:
@@ -209,23 +203,23 @@ tools:
     - label: 'Pandoc'
     - url: 'http://pandoc.org/'
   - stack:
-    - symbol: ~
+    - symbol:
     - label: 'pandoc-citeproc'
     - url: 'https://github.com/jgm/pandoc-citeproc/'
   - stack:
-    - symbol: ~
+    - symbol:
     - label: 'pandoc-crossref'
     - url: 'https://github.com/lierdakil/pandoc-crossref/'
   - stack:
-    - symbol: ~
+    - symbol:
     - label: '\TeX Live'
     - url: 'https://www.tug.org/texlive/'
   - stack:
-    - symbol: ~
+    - symbol:
     - label: '\XeLaTeX'
     - url: 'http://xetex.sourceforge.net/'
   - stack:
-    - symbol: ~
+    - symbol:
     - label: 'YAML'
     - url: 'http://yaml.org/'
   - stack:
@@ -233,15 +227,15 @@ tools:
     - label: 'Zotero'
     - url: 'https://www.zotero.org/'
   - stack:
-    - symbol: ~
+    - symbol:
     - label: 'zotero-citations'
     - url: 'https://github.com/retorquere/zotero-citations/'
   - stack:
-    - symbol: ~
+    - symbol:
     - label: 'zotero-picker'
     - url: 'https://github.com/oztalha/zotero-picker/'
   - stack:
-    - symbol: ~
+    - symbol:
     - label: 'zotfile'
     - url: 'https://github.com/jlegewie/zotfile/'
 
